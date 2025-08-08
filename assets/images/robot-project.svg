@@ -1,0 +1,9 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="16" fill="#0a0a0c"/>
+  <rect x="60" y="60" width="520" height="240" rx="14" fill="#111216" stroke="#23232a"/>
+  <rect x="90" y="90" width="220" height="160" rx="10" fill="#0f1a16" stroke="#15b887"/>
+  <rect x="330" y="90" width="220" height="160" rx="10" fill="#12121a" stroke="#3c3c48"/>
+  <text x="24" y="34" fill="#b38bff" font-family="Inter, Arial" font-size="14" font-weight="700">Robotics Project (placeholder)</text>
+</svg>
+
+

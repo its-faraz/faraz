@@ -1,0 +1,15 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="16" fill="#0a0a0c"/>
+  <g opacity="0.95">
+    <rect x="80" y="90" width="480" height="220" rx="12" fill="#121216" stroke="#23232a"/>
+    <rect x="110" y="120" width="160" height="24" rx="6" fill="#0f1a16" stroke="#15b887"/>
+    <rect x="110" y="154" width="160" height="24" rx="6" fill="#0f1a16" stroke="#15b887"/>
+    <rect x="110" y="188" width="160" height="24" rx="6" fill="#0f1a16" stroke="#15b887"/>
+    <circle cx="420" cy="200" r="46" fill="#201016" stroke="#3c1020"/>
+    <path d="M405 195 C 410 185, 430 185, 435 195 C 440 205, 430 225, 420 230 C 410 225, 400 205, 405 195 Z" fill="#d0446b"/>
+    <path d="M418 175 C 425 170, 430 170, 438 178" stroke="#15b887"/>
+  </g>
+  <text x="24" y="34" fill="#15b887" font-family="Inter, Arial" font-size="14" font-weight="700">Strawberry Vision Analytics (placeholder)</text>
+</svg>
+
+

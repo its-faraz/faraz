@@ -1,0 +1,15 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="16" fill="#0a0a0c"/>
+  <g opacity="0.9">
+    <rect x="60" y="220" width="520" height="4" fill="#1f1f25"/>
+    <circle cx="200" cy="220" r="38" fill="#101015" stroke="#2c2c35"/>
+    <circle cx="440" cy="220" r="38" fill="#101015" stroke="#2c2c35"/>
+    <rect x="170" y="120" width="300" height="80" rx="12" fill="#14141a" stroke="#2a2a33"/>
+    <rect x="185" y="135" width="120" height="50" rx="8" fill="#0f1a16" stroke="#15b887"/>
+    <rect x="315" y="135" width="140" height="50" rx="8" fill="#12121a" stroke="#3c3c48"/>
+    <rect x="140" y="185" width="360" height="22" rx="10" fill="#0d0d12" stroke="#22222a"/>
+  </g>
+  <text x="24" y="34" fill="#15b887" font-family="Inter, Arial" font-size="14" font-weight="700">Autonomous Nursery Robot (placeholder)</text>
+</svg>
+
+

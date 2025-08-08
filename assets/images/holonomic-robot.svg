@@ -1,0 +1,13 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="16" fill="#0a0a0c"/>
+  <g opacity="0.9">
+    <path d="M80 300 C 140 260, 240 240, 320 220 C 410 200, 500 180, 560 120" stroke="#4aa3ff" stroke-width="3" fill="none"/>
+    <circle cx="560" cy="120" r="6" fill="#4aa3ff"/>
+    <rect x="280" y="160" width="80" height="50" rx="8" fill="#14141a" stroke="#2a2a33"/>
+    <circle cx="300" cy="220" r="14" fill="#101015" stroke="#2c2c35"/>
+    <circle cx="340" cy="220" r="14" fill="#101015" stroke="#2c2c35"/>
+  </g>
+  <text x="24" y="34" fill="#4aa3ff" font-family="Inter, Arial" font-size="14" font-weight="700">Holonomic Robot Path Planning (placeholder)</text>
+</svg>
+
+
