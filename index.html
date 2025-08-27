@@ -19,12 +19,11 @@
           <ul class="nav-list">
             <li><a href="#about">About</a></li>
             <li><a href="#research">Research</a></li>
-            <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#media">Media</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#awards">Awards</a></li>
-            <li><a href="#tech">Tech</a></li>
             <li><a href="#contact">Contact</a></li>
             <li>
               <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
@@ -38,7 +37,7 @@
       <section class="hero">
         <div class="container narrow hero-grid">
           <div class="hero-intro">
-            <h1>Robotics and AI for </h1>
+            <h1>Robotics and AI for Agriculture</h1>
           <p class="lede">I build autonomous systems that see, decide, and act in the field — turning research into tools that scale from greenhouses to commercial nurseries.</p>
           <div class="hero-cta">
             <a class="button" href="#research">Explore research</a>
@@ -114,50 +113,117 @@
               </ul>
             </div>
           </div>
-          <div class="chips">
-            <span class="chip">Robotics</span>
-            <span class="chip">AI</span>
-            <span class="chip">Mechanical</span>
-            <span class="chip">Agriculture</span>
-            <span class="chip">Computer Vision</span>
-            <span class="chip">Deep Learning</span>
-            <span class="chip">Reinforcement Learning</span>
-            <span class="chip">ROS / Gazebo</span>
-            <span class="chip">NVIDIA Jetson</span>
-            <span class="chip">Path Planning</span>
-            <span class="chip">SLAM</span>
-            <span class="chip">Segmentation</span>
-            <span class="chip">Detection</span>
-            <span class="chip">Tracking</span>
-            <span class="chip">Hyperspectral Analysis</span>
-            <span class="chip">Geospatial Tech</span>
-            <span class="chip">Deterministic Modeling</span>
-            <span class="chip">Experimental Statistics</span>
-          </div>
         </div>
       </section>
 
-      <section id="research" class="section alt">
-        <div class="container narrow prose">
-          <h2>Highlighted Research</h2>
-          <article class="feature">
-            <img src="./assets/images/nursery-robot.svg" alt="Autonomous Nursery Management Robot placeholder" />
-            <div>
-              <h3>Autonomous Nursery Management Robot</h3>
-              <p>Developing an autonomous robot for large nurseries to automate plant counting, quality assessment, and inventory management. Depth-aware vision, robust control, and modular ROS architecture — validated in Gazebo and targeted for field deployment on Jetson.</p>
-              <p class="meta">Auburn University · 2024—Ongoing</p>
+      <div class="research-experience-container">
+        <section id="research" class="section alt">
+          <div class="container narrow prose">
+            <h2>Research Projects</h2>
+            <article class="feature">
+              <img src="./assets/images/nursery-robot.svg" alt="Autonomous Nursery Management Robot placeholder" />
+              <div>
+                <h3>Autonomous Nursery Management Robot</h3>
+                <p>Developing an autonomous robot for large nurseries to automate plant counting, quality assessment, and inventory management. Depth-aware vision, robust control, and modular ROS architecture — validated in Gazebo and targeted for field deployment on Jetson.</p>
+                <p class="meta">Auburn University · 2024—Ongoing</p>
+              </div>
+            </article>
+            <article class="feature">
+              <img src="./assets/images/holonomic-robot.svg" alt="Holonomic Robot Path Planning placeholder" />
+              <div>
+                <h3>Holonomic Collaborative Robot: Path Planning via DRL + SLAM</h3>
+                <p>End-to-end pipeline: MATLAB/Simulink modeling, Python training, Gazebo/ROS Noetic validation, and physical testing. Combined deep RL and SLAM for reliable navigation in changing environments.</p>
+                <p class="meta">GIKI Manufacturing Lab · 2021—2022</p>
+              </div>
+            </article>
+            <article class="feature">
+              <img src="./assets/images/strawberry-vision.svg" alt="Strawberry vision analytics placeholder" />
+              <div>
+                <h3>Strawberry Vision Analytics</h3>
+                <p>RGB data collection → storage → model training → dashboard. Detection models and actionable insights for yield and treatments.</p>
+                <p class="meta">TRIC Robotics · 2025</p>
+              </div>
+            </article>
+            <article class="feature">
+              <img src="./assets/images/robot-project.svg" alt="3D printer CV reliability placeholder" />
+              <div>
+                <h3>3D Printer Reliability with CV</h3>
+                <p>Spaghetti detection and BTT Pi integrations to reduce failure modes in distributed 3D printing setups.</p>
+                <p class="meta">Mech Solutions · 2023–2024</p>
+              </div>
+            </article>
+            <article class="feature">
+              <img src="./assets/images/strawberry-vision.svg" alt="Overhead camera system placeholder" />
+              <div>
+                <h3>Robotic Overhead Camera System</h3>
+                <p>Design and development for automated greenhouse monitoring — to be published.</p>
+                <p class="meta">Auburn · Pending</p>
+              </div>
+            </article>
+            <article class="feature">
+              <img src="./assets/images/robot-project.svg" alt="KBTrack placeholder" />
+              <div>
+                <h3>KBTrack: Long-term Plant Tracking</h3>
+                <p>Cloud-enabled segmentation + tracking for counting/inventory — patent pending.</p>
+                <p class="meta">Auburn · Pending</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="experience" class="section">
+          <div class="container narrow">
+            <h2>Experience</h2>
+            <div class="timeline-legend">
+              <span class="pill pill-uni">Academia</span>
+              <span class="pill pill-ind">Industry</span>
+              <span class="pill pill-int">Internship</span>
             </div>
-          </article>
-          <article class="feature">
-            <img src="./assets/images/holonomic-robot.svg" alt="Holonomic Robot Path Planning placeholder" />
-            <div>
-              <h3>Holonomic Collaborative Robot: Path Planning via DRL + SLAM</h3>
-              <p>End-to-end pipeline: MATLAB/Simulink modeling, Python training, Gazebo/ROS Noetic validation, and physical testing. Combined deep RL and SLAM for reliable navigation in changing environments.</p>
-              <p class="meta">GIKI Manufacturing Lab · 2021—2022</p>
+            <div class="v-timeline">
+              <div class="vt-item">
+                <div class="vt-dot pill-uni"></div>
+                <div class="vt-content">
+                  <h3>Graduate Research Assistant · Auburn University</h3>
+                  <p class="meta">May 2024 — Present · Precision Agriculture Lab</p>
+                  <p>Autonomous navigation and perception on farm‑ng Amiga: deep learning + RL, ROS/Gazebo, NVIDIA Jetson, inventory and QA workflows for large nurseries.</p>
+                </div>
+              </div>
+              <div class="vt-item">
+                <div class="vt-dot pill-int"></div>
+                <div class="vt-content">
+                  <h3>Robotics Engineering Intern · TRIC Robotics</h3>
+                  <p class="meta">May 2025 — Aug 2025</p>
+                  <p>RGB pipeline for strawberry yield analytics, farmer dashboards, and a predatory mite applicator design/analysis.</p>
+                </div>
+              </div>
+              <div class="vt-item">
+                <div class="vt-dot pill-ind"></div>
+                <div class="vt-content">
+                  <h3>Product Assistant · Mech Solutions (remote)</h3>
+                  <p class="meta">Feb 2023 — Apr 2024</p>
+                  <p>3D printer reliability via computer vision: spaghetti detection; BTT Pi + Cloud3dPrint integrations.</p>
+                </div>
+              </div>
+              <div class="vt-item">
+                <div class="vt-dot pill-ind"></div>
+                <div class="vt-content">
+                  <h3>Business Development Trainee · SWVL</h3>
+                  <p class="meta">Sep 2022 — Dec 2022</p>
+                  <p>Client accounts, lead generation, and transportation models for organizations.</p>
+                </div>
+              </div>
+              <div class="vt-item">
+                <div class="vt-dot pill-int"></div>
+                <div class="vt-content">
+                  <h3>Computer Vision Intern · GIK Institute</h3>
+                  <p class="meta">Jun 2021 — Jul 2021</p>
+                  <p>Medial cubital vein detection with TensorFlow/YOLOv5; 97% accuracy and large training acceleration.</p>
+                </div>
+              </div>
             </div>
-          </article>
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
 
       <section id="skills" class="section">
         <div class="container narrow prose">
@@ -179,151 +245,67 @@
             <h3 id="skill-title"></h3>
             <p id="skill-note" class="muted"></p>
           </div>
-        </div>
-      </section>
-
-      <section id="experience" class="section">
-        <div class="container narrow">
-          <h2>Experience</h2>
-          <div class="timeline-legend">
-            <span class="pill pill-uni">Academia</span>
-            <span class="pill pill-ind">Industry</span>
-            <span class="pill pill-int">Internship</span>
-          </div>
-          <div class="v-timeline">
-            <div class="vt-item">
-              <div class="vt-dot pill-uni"></div>
-              <div class="vt-content">
-                <h3>Graduate Research Assistant · Auburn University</h3>
-                <p class="meta">May 2024 — Present · Precision Agriculture Lab</p>
-                <p>Autonomous navigation and perception on farm‑ng Amiga: deep learning + RL, ROS/Gazebo, NVIDIA Jetson, inventory and QA workflows for large nurseries.</p>
-              </div>
-            </div>
-            <div class="vt-item">
-              <div class="vt-dot pill-int"></div>
-              <div class="vt-content">
-                <h3>Robotics Engineering Intern · TRIC Robotics</h3>
-                <p class="meta">May 2025 — Aug 2025</p>
-                <p>RGB pipeline for strawberry yield analytics, farmer dashboards, and a predatory mite applicator design/analysis.</p>
-              </div>
-            </div>
-            <div class="vt-item">
-              <div class="vt-dot pill-ind"></div>
-              <div class="vt-content">
-                <h3>Product Assistant · Mech Solutions (remote)</h3>
-                <p class="meta">Feb 2023 — Apr 2024</p>
-                <p>3D printer reliability via computer vision: spaghetti detection; BTT Pi + Cloud3dPrint integrations.</p>
-              </div>
-            </div>
-            <div class="vt-item">
-              <div class="vt-dot pill-ind"></div>
-              <div class="vt-content">
-                <h3>Business Development Trainee · SWVL</h3>
-                <p class="meta">Sep 2022 — Dec 2022</p>
-                <p>Client accounts, lead generation, and transportation models for organizations.</p>
-              </div>
-            </div>
-            <div class="vt-item">
-              <div class="vt-dot pill-int"></div>
-              <div class="vt-content">
-                <h3>Computer Vision Intern · GIK Institute</h3>
-                <p class="meta">Jun 2021 — Jul 2021</p>
-                <p>Medial cubital vein detection with TensorFlow/YOLOv5; 97% accuracy and large training acceleration.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="section alt">
-        <div class="container">
-          <h2 class="narrow">Selected Projects</h2>
-          <div class="card-grid">
-            <article class="card">
-              <img src="./assets/images/strawberry-vision.svg" alt="Strawberry vision analytics placeholder" />
-              <div class="card-body">
-                <h3>Strawberry Vision Analytics</h3>
-                <p>RGB data collection → storage → model training → dashboard. Detection models and actionable insights for yield and treatments.</p>
-                <p class="meta">TRIC Robotics · 2025</p>
-              </div>
-            </article>
-            <article class="card">
-              <img src="./assets/images/robot-project.svg" alt="3D printer CV reliability placeholder" />
-              <div class="card-body">
-                <h3>3D Printer Reliability with CV</h3>
-                <p>Spaghetti detection and BTT Pi integrations to reduce failure modes in distributed 3D printing setups.</p>
-                <p class="meta">Mech Solutions · 2023–2024</p>
-              </div>
-            </article>
-            <article class="card">
-              <img src="./assets/images/holonomic-robot.svg" alt="Holonomic robot path planning placeholder" />
-              <div class="card-body">
-                <h3>Holonomic Robot Path Planning</h3>
-                <p>DRL + SLAM navigation; MATLAB/Simulink modeling; Python training; Gazebo/ROS Noetic validation; lab deployment.</p>
-                <p class="meta">GIKI · 2021–2022</p>
-              </div>
-            </article>
-            <article class="card">
-              <img src="./assets/images/strawberry-vision.svg" alt="Overhead camera system placeholder" />
-              <div class="card-body">
-                <h3>Robotic Overhead Camera System</h3>
-                <p>Design and development for automated greenhouse monitoring — to be published.</p>
-                <p class="meta">Auburn · Pending</p>
-              </div>
-            </article>
-            <article class="card">
-              <img src="./assets/images/robot-project.svg" alt="KBTrack placeholder" />
-              <div class="card-body">
-                <h3>KBTrack: Long-term Plant Tracking</h3>
-                <p>Cloud-enabled segmentation + tracking for counting/inventory — patent pending.</p>
-                <p class="meta">Auburn · Pending</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="tech" class="section">
-        <div class="container narrow prose">
-          <h2>Programming & AI — Technical</h2>
+          
+          <h3>Programming & AI — Technical</h3>
           <p class="muted">A console‑style overview of what I work with day‑to‑day.</p>
           <div class="console-grid">
             <div class="console">
-              <h3>Core Languages</h3>
+              <h4>Core Languages</h4>
               <p>Python, C++, MATLAB, C, SQL, Bash</p>
-              <h3>ML / CV</h3>
+              <h4>ML / CV</h4>
               <p>PyTorch, TensorFlow, YOLOv5/11, OpenCV, scikit‑learn, NumPy, Pandas</p>
-              <h3>Visualization</h3>
+              <h4>Visualization</h4>
               <p>Matplotlib, Seaborn; dashboarding with FastAPI/Gradio when needed</p>
             </div>
             <div class="console">
-              <h3>Robotics</h3>
+              <h4>Robotics</h4>
               <p>ROS Noetic/Humble, Gazebo/ignition, SLAM (GMapping, ORB‑SLAM), Path‑planning (A*, D*, RRT*, RL)</p>
-              <h3>Platforms</h3>
+              <h4>Platforms</h4>
               <p>NVIDIA Jetson (Xavier/Orin), Ubuntu, farm‑ng Amiga</p>
-              <h3>DevOps</h3>
+              <h4>DevOps</h4>
               <p>Git, Docker, reproducible training/eval pipelines, dataset versioning</p>
             </div>
           </div>
-          <div class="chips">
-            <span class="chip">PyTorch</span>
-            <span class="chip">TensorFlow</span>
-            <span class="chip">YOLOv5/11</span>
-            <span class="chip">OpenCV</span>
-            <span class="chip">scikit‑learn</span>
-            <span class="chip">NumPy</span>
-            <span class="chip">Pandas</span>
-            <span class="chip">ROS Noetic</span>
-            <span class="chip">Gazebo</span>
-            <span class="chip">SLAM</span>
-            <span class="chip">RRT*</span>
-            <span class="chip">A*/D*</span>
-            <span class="chip">Jetson</span>
-            <span class="chip">Docker</span>
-            <span class="chip">Git</span>
-            <span class="chip">Ubuntu</span>
-            <span class="chip">FastAPI</span>
-            <span class="chip">Gradio</span>
+        </div>
+      </section>
+
+      <section id="media" class="section alt">
+        <div class="container narrow">
+          <h2>Media Gallery</h2>
+          <p class="muted">A collection of images and videos showcasing my work and achievements.</p>
+          <div class="media-gallery single-item">
+            <div class="media-item">
+              <img src="./assets/images/Media/placeholder-1.svg" alt="Research work placeholder" />
+              <div class="media-caption">
+                <h4>Research Achievement</h4>
+                <p>Description of the work and its impact</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img src="./assets/images/Media/placeholder-2.svg" alt="Project showcase placeholder" />
+              <div class="media-caption">
+                <h4>Project Showcase</h4>
+                <p>Description of the project and outcomes</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img src="./assets/images/Media/placeholder-3.svg" alt="Award ceremony placeholder" />
+              <div class="media-caption">
+                <h4>Award Recognition</h4>
+                <p>Description of the award and significance</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img src="./assets/images/Media/placeholder-4.svg" alt="Team collaboration placeholder" />
+              <div class="media-caption">
+                <h4>Team Collaboration</h4>
+                <p>Description of the collaborative work</p>
+              </div>
+            </div>
+          </div>
+          <div class="media-navigation">
+            <button class="media-nav prev" aria-label="Previous media">‹</button>
+            <button class="media-nav next" aria-label="Next media">›</button>
           </div>
         </div>
       </section>
@@ -350,7 +332,10 @@
             <li>Excellence in Productivity Award – Farm Robotics Challenge, FIRA World Ag Robotics Forum 2024</li>
             <li>Best 1st Year Graduate Student Presentation — Graduate Engineering Research Showcase 2025</li>
             <li>2nd Place — Harnessing Data Science and AI in Production Agriculture Forum 2025</li>
-            <li>Graduated with Distinction — GIKI; Four-time Dean’s Honor Roll; Chief Minister KPK Scholarship</li>
+            <li>Graduated with Distinction — GIKI</li>
+            <li>Four-time Dean's Honor Roll</li>
+            <li>Chief Minister KPK Scholarship</li>
+            <li>Currently serving as Treasurer in PSA (Pakistani Student Association)</li>
           </ul>
         </div>
       </section>
@@ -390,7 +375,7 @@
 
     <footer class="site-footer">
       <div class="container narrow">
-        <p>© <span id="year"></span> Faraz Ahmad. Built with semantic HTML, modern CSS, and vanilla JS.</p>
+        <p>© <span id="year"></span> Faraz Ahmad.</p>
       </div>
     </footer>
 
