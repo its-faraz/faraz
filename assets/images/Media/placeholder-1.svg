@@ -1,7 +1,0 @@
-<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-  <rect width="300" height="200" fill="#f0f0f0"/>
-  <rect x="50" y="50" width="200" height="100" fill="#15b887" opacity="0.8"/>
-  <circle cx="150" cy="100" r="30" fill="#ffffff"/>
-  <text x="150" y="110" text-anchor="middle" fill="#15b887" font-family="Arial" font-size="24" font-weight="bold">R</text>
-  <text x="150" y="170" text-anchor="middle" fill="#666666" font-family="Arial" font-size="14">Research Achievement</text>
-</svg>

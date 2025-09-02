@@ -38,7 +38,7 @@
         <div class="container narrow hero-grid">
           <div class="hero-intro">
             <h1>Robotics and AI for Agriculture</h1>
-          <p class="lede">I build autonomous systems that see, decide, and act in the field — turning research into tools that scale from greenhouses to commercial nurseries.</p>
+          <p class="lede">I build autonomous systems that see, decide, and act in the field - turning research into tools that scale from greenhouses to commercial nurseries.</p>
           <div class="hero-cta">
             <a class="button" href="#research">Explore research</a>
             <a class="button button-secondary" href="#publications">See publications</a>
@@ -68,7 +68,7 @@
               <div class="stat-label">In-progress papers / patents</div>
             </div>
             <div class="stat">
-              <div class="stat-num">5+</div>
+              <div class="stat-num">15+</div>
               <div class="stat-label">Robotics/AI projects</div>
             </div>
           </div>
@@ -116,12 +116,12 @@
         </div>
       </section>
 
-      <div class="research-experience-container">
+      <div class="research-experience-grid">
         <section id="research" class="section alt">
           <div class="container narrow prose">
             <h2>Research Projects</h2>
             <article class="feature">
-              <img src="./assets/images/nursery-robot.svg" alt="Autonomous Nursery Management Robot placeholder" />
+              <img src="./assets/images/nursery-robot.jpeg" alt="Autonomous Nursery Management Robot placeholder" />
               <div>
                 <h3>Autonomous Nursery Management Robot</h3>
                 <p>Developing an autonomous robot for large nurseries to automate plant counting, quality assessment, and inventory management. Depth-aware vision, robust control, and modular ROS architecture — validated in Gazebo and targeted for field deployment on Jetson.</p>
@@ -129,7 +129,7 @@
               </div>
             </article>
             <article class="feature">
-              <img src="./assets/images/holonomic-robot.svg" alt="Holonomic Robot Path Planning placeholder" />
+              <img src="./assets/images/holonomic-robot.png" alt="Holonomic Robot Path Planning placeholder" />
               <div>
                 <h3>Holonomic Collaborative Robot: Path Planning via DRL + SLAM</h3>
                 <p>End-to-end pipeline: MATLAB/Simulink modeling, Python training, Gazebo/ROS Noetic validation, and physical testing. Combined deep RL and SLAM for reliable navigation in changing environments.</p>
@@ -137,7 +137,7 @@
               </div>
             </article>
             <article class="feature">
-              <img src="./assets/images/strawberry-vision.svg" alt="Strawberry vision analytics placeholder" />
+              <img src="./assets/images/strawberry-vision.png" alt="Strawberry vision analytics placeholder" />
               <div>
                 <h3>Strawberry Vision Analytics</h3>
                 <p>RGB data collection → storage → model training → dashboard. Detection models and actionable insights for yield and treatments.</p>
@@ -145,7 +145,7 @@
               </div>
             </article>
             <article class="feature">
-              <img src="./assets/images/robot-project.svg" alt="3D printer CV reliability placeholder" />
+              <img src="./assets/images/vision.jpg" alt="3D printer CV reliability placeholder" />
               <div>
                 <h3>3D Printer Reliability with CV</h3>
                 <p>Spaghetti detection and BTT Pi integrations to reduce failure modes in distributed 3D printing setups.</p>
@@ -153,7 +153,7 @@
               </div>
             </article>
             <article class="feature">
-              <img src="./assets/images/strawberry-vision.svg" alt="Overhead camera system placeholder" />
+              <img src="./assets/images/overhead.JPG" alt="Overhead camera system placeholder" />
               <div>
                 <h3>Robotic Overhead Camera System</h3>
                 <p>Design and development for automated greenhouse monitoring — to be published.</p>
@@ -161,7 +161,7 @@
               </div>
             </article>
             <article class="feature">
-              <img src="./assets/images/robot-project.svg" alt="KBTrack placeholder" />
+              <img src="./assets/images/KBTrack.png" alt="KBTrack placeholder" />
               <div>
                 <h3>KBTrack: Long-term Plant Tracking</h3>
                 <p>Cloud-enabled segmentation + tracking for counting/inventory — patent pending.</p>
@@ -273,40 +273,83 @@
         <div class="container narrow">
           <h2>Media Gallery</h2>
           <p class="muted">A collection of images and videos showcasing my work and achievements.</p>
-          <div class="media-gallery single-item">
-            <div class="media-item">
-              <img src="./assets/images/Media/placeholder-1.svg" alt="Research work placeholder" />
+          <div class="media-gallery">
+            <div class="media-item active">
+              <img src="./Media/Amiga_Nursery_testing.jpg" alt="Amiga Nursery Testing" />
               <div class="media-caption">
-                <h4>Research Achievement</h4>
-                <p>Description of the work and its impact</p>
+                <h4>Amiga Nursery Testing</h4>
+                <p>Field testing of autonomous navigation and perception systems for nursery management using the farm-ng Amiga platform.</p>
               </div>
             </div>
             <div class="media-item">
-              <img src="./assets/images/Media/placeholder-2.svg" alt="Project showcase placeholder" />
+              <img src="./Media/FIRA Winner.jpg" alt="FIRA Winner" />
               <div class="media-caption">
-                <h4>Project Showcase</h4>
-                <p>Description of the project and outcomes</p>
+                <h4>FIRA World Ag Robotics Forum Winner</h4>
+                <p>Excellence in Productivity Award winner at the Farm Robotics Challenge, FIRA World Ag Robotics Forum 2024.</p>
               </div>
             </div>
             <div class="media-item">
-              <img src="./assets/images/Media/placeholder-3.svg" alt="Award ceremony placeholder" />
+              <img src="./Media/Poster Presentation.jpg" alt="Poster Presentation" />
               <div class="media-caption">
-                <h4>Award Recognition</h4>
-                <p>Description of the award and significance</p>
+                <h4>Research Poster Presentation</h4>
+                <p>Presenting research findings on autonomous agricultural robotics and computer vision applications.</p>
               </div>
             </div>
             <div class="media-item">
-              <img src="./assets/images/Media/placeholder-4.svg" alt="Team collaboration placeholder" />
+              <img src="./Media/Award Winner - Research showcase.jpg" alt="Award Winner Research Showcase" />
               <div class="media-caption">
-                <h4>Team Collaboration</h4>
-                <p>Description of the collaborative work</p>
+                <h4>Best 1st Year Graduate Student Presentation</h4>
+                <p>Award winner at the Graduate Engineering Research Showcase 2025 for outstanding research presentation.</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img src="./Media/Award winner - AI for Collab.jpg" alt="Award Winner AI for Collaboration" />
+              <div class="media-caption">
+                <h4>2nd Place - AI in Production Agriculture</h4>
+                <p>Second place winner at the Harnessing Data Science and AI in Production Agriculture Forum 2025.</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img src="./Media/ASABE 2025 presentaion.jpg" alt="ASABE 2025 Presentation" />
+              <div class="media-caption">
+                <h4>ASABE 2025 Conference Presentation</h4>
+                <p>Presenting research on agricultural robotics and precision agriculture at the ASABE Annual International Meeting.</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img src="./Media/internship at TRIC Robotics.png" alt="TRIC Robotics Internship" />
+              <div class="media-caption">
+                <h4>TRIC Robotics Internship</h4>
+                <p>Robotics Engineering Internship experience working on strawberry yield analytics and farmer dashboard development.</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img src="./Media/Field_day_in California -TRIC Robotics.jpg" alt="Field Day California TRIC Robotics" />
+              <div class="media-caption">
+                <h4>Field Day in California - TRIC Robotics</h4>
+                <p>Field testing and validation of robotics systems in real agricultural environments during the TRIC Robotics internship.</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img src="./Media/BS_graduation.jpg" alt="BS Graduation" />
+              <div class="media-caption">
+                <h4>Bachelor's Degree Graduation</h4>
+                <p>Graduated with Distinction from Ghulam Ishaq Khan Institute (GIKI) with a B.S. in Mechanical Engineering.</p>
+              </div>
+            </div>
+            <div class="media-item">
+              <img src="./Media/Precision Ag Lab at Auburn.jpeg" alt="Precision Agriculture Lab Auburn" />
+              <div class="media-caption">
+                <h4>Precision Agriculture Lab at Auburn</h4>
+                <p>Research environment at Auburn University's Precision Agriculture Lab working on autonomous agricultural robotics.</p>
               </div>
             </div>
           </div>
-          <div class="media-navigation">
-            <button class="media-nav prev" aria-label="Previous media">‹</button>
-            <button class="media-nav next" aria-label="Next media">›</button>
-          </div>
+                      <div class="media-navigation">
+              <button class="media-nav prev" aria-label="Previous media">←</button>
+              <span class="media-counter">1 of 10</span>
+              <button class="media-nav next" aria-label="Next media">→</button>
+            </div>
         </div>
       </section>
 
@@ -329,13 +372,13 @@
         <div class="container narrow prose">
           <h2>Awards & Recognitions</h2>
           <ul>
-            <li>Excellence in Productivity Award – Farm Robotics Challenge, FIRA World Ag Robotics Forum 2024</li>
-            <li>Best 1st Year Graduate Student Presentation — Graduate Engineering Research Showcase 2025</li>
-            <li>2nd Place — Harnessing Data Science and AI in Production Agriculture Forum 2025</li>
-            <li>Graduated with Distinction — GIKI</li>
+            <li><strong>Excellence in Productivity Award- Farm Robotics Challenge, FIRA World Ag Robotics Forum 2024</strong> </li>
+            <li>Best 1st Year Graduate Student Presentation - Graduate Engineering Research Showcase 2025</li>
+            <li>2nd Place - Harnessing Data Science and AI in Production Agriculture Forum 2025</li>
+            <li>Graduated with Distinction - GIKI</li>
             <li>Four-time Dean's Honor Roll</li>
             <li>Chief Minister KPK Scholarship</li>
-            <li>Currently serving as Treasurer in PSA (Pakistani Student Association)</li>
+            <li>I am serving as a Treasurer in PSA</li>
           </ul>
         </div>
       </section>
@@ -343,17 +386,15 @@
       <section class="section">
         <div class="container narrow prose">
           <h2>Certifications</h2>
-          <div class="two-up">
+          <div>
             <ul>
-              <li>Introduction to Programming with MATLAB — Vanderbilt (Coursera)</li>
-              <li>Machine Learning — Stanford (Coursera, MATLAB)</li>
-              <li>Machine Learning Specialization — DeepLearning.AI (Python)</li>
-            </ul>
-            <ul>
+              <li>Introduction to Programming with MATLAB - Vanderbilt (Coursera)</li>
+              <li>Machine Learning - Stanford (Coursera, MATLAB)</li>
+              <li>Machine Learning Specialization - DeepLearning.AI (Python)</li>
               <li>Deep Learning Specialization — DeepLearning.AI</li>
-              <li>Computer Vision Nanodegree — Udacity</li>
-              <li>Google Data Analytics Specialization — Coursera</li>
-              <li>Exploratory Data Analysis with MATLAB — MathWorks (Coursera)</li>
+              <li>Computer Vision Nanodegree - Udacity</li>
+              <li>Google Data Analytics Specialization - Coursera</li>
+              <li>Exploratory Data Analysis with MATLAB - MathWorks (Coursera)</li>
             </ul>
           </div>
         </div>
@@ -421,6 +462,10 @@
           { name:'Path Planning (A*, D*, RRT*, RL)', group:'robotics', note:'Global/local planners and DRL' },
           { name:'Mechatronics', group:'mechanical', note:'Electromechanical integration and control' },
           { name:'Jetson (Xavier/Orin)', group:'robotics', note:'Edge acceleration for CV/AI' },
+          { name:'farm-ng Amiga', group:'robotics', note:'Agricultural robotics platform' },
+          { name:'Robot Operating System', group:'robotics', note:'Complete robotics middleware' },
+          { name:'Navigation Stack', group:'robotics', note:'Path planning and obstacle avoidance' },
+          { name:'Sensor Fusion', group:'robotics', note:'Multi-modal sensor integration' },
           // AI
           { name:'Deep Learning (PyTorch, TF)', group:'ml', note:'Training and deployment' },
           { name:'Reinforcement Learning', group:'ml', note:'Decision-making for navigation/control' },
@@ -428,20 +473,36 @@
           { name:'Segmentation', group:'ml', note:'Plant/row/leaf segmentation and counting' },
           { name:'Tracking', group:'ml', note:'Long-term inventory tracking' },
           { name:'Hyperspectral Analysis', group:'ml', note:'Stress/traits analysis for crops' },
+          { name:'Computer Vision', group:'ml', note:'Image processing and analysis' },
+          { name:'Machine Learning', group:'ml', note:'Supervised and unsupervised learning' },
+          { name:'Neural Networks', group:'ml', note:'Deep learning architectures' },
+          { name:'Transfer Learning', group:'ml', note:'Pre-trained model adaptation' },
           // Mechanical
           { name:'Deterministic Modeling', group:'mechanical', note:'System modeling and simulation' },
           { name:'System Dynamics & Control', group:'mechanical', note:'Robotics dynamics and control' },
           { name:'C++ / MATLAB', group:'mechanical', note:'Performance-critical and prototyping' },
+          { name:'CAD Design', group:'mechanical', note:'3D modeling and design' },
+          { name:'Finite Element Analysis', group:'mechanical', note:'Structural and thermal analysis' },
+          { name:'Control Systems', group:'mechanical', note:'PID, state-space, and adaptive control' },
+          { name:'Robotics Kinematics', group:'mechanical', note:'Forward and inverse kinematics' },
           // Agriculture
           { name:'Nursery Ops', group:'ag', note:'Workflows in commercial nurseries' },
           { name:'Inventory', group:'ag', note:'Counting and audit at scale' },
           { name:'Quality Assessment', group:'ag', note:'Visual QA and grading' },
           { name:'Geospatial', group:'ag', note:'Spatial analytics and mapping' },
+          { name:'Precision Agriculture', group:'ag', note:'Site-specific crop management' },
+          { name:'Plant Phenotyping', group:'ag', note:'Plant trait measurement and analysis' },
+          { name:'Crop Monitoring', group:'ag', note:'Real-time field monitoring systems' },
+          { name:'Agricultural Robotics', group:'ag', note:'Field automation and robotics' },
           // Systems
           { name:'Python', group:'systems', note:'End-to-end glue: data and services' },
           { name:'Data Analytics', group:'systems', note:'EDA, KPIs, dashboards' },
           { name:'Web Dashboard (FastAPI/Gradio)', group:'systems', note:'Farmer dashboards and internal tools' },
-          { name:'Docker / Git / Ubuntu', group:'systems', note:'Reproducible environments' }
+          { name:'Docker / Git / Ubuntu', group:'systems', note:'Reproducible environments' },
+          { name:'Cloud Computing', group:'systems', note:'AWS, Azure, Google Cloud' },
+          { name:'Database Management', group:'systems', note:'SQL, NoSQL, data warehousing' },
+          { name:'API Development', group:'systems', note:'RESTful APIs and microservices' },
+          { name:'DevOps', group:'systems', note:'CI/CD, automation, monitoring' }
         ]
       };
     </script>

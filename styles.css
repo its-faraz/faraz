@@ -153,6 +153,7 @@ img[alt$="placeholder"]{object-fit:contain; background:transparent}
 @media (max-width: 860px){.console-grid{grid-template-columns:1fr}}
 .console{background: #0b0d10; color:#d7e0ea; border:1px solid var(--border); border-radius:12px; padding:14px}
 :root.light .console{background:#0f172a; color:#e6edf6}
+.console h3{font:600 14px/1 Inter, sans-serif; letter-spacing:.3px; margin:0 0 8px; color:var(--brand)}
 .console p{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:13px; color:#cfd7e3}
 .console .mono-list{display:flex; flex-wrap:wrap; gap:8px}
 .console .mono-list .chip{background:transparent}
@@ -163,35 +164,6 @@ img[alt$="placeholder"]{object-fit:contain; background:transparent}
 .edu-card{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px}
 .edu-card h4{margin:0 0 6px}
 .edu-card .meta{color:var(--muted); font-size:12px}
-
-/* Research and Experience side-by-side layout */
-.research-experience-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-.research-experience-container .section{
-  padding: 56px 0;
-}
-.research-experience-container .section.alt{
-  background: var(--alt);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.research-experience-container .section:not(.alt){
-  background: var(--bg);
-}
-@media (max-width: 1000px){
-  .research-experience-container{
-    grid-template-columns: 1fr;
-  }
-  .research-experience-container .section.alt{
-    border-bottom: none;
-  }
-  .research-experience-container .section:not(.alt){
-    border-top: 1px solid var(--border);
-  }
-}
 
 /* Media Gallery */
 .media-gallery{
@@ -205,50 +177,84 @@ img[alt$="placeholder"]{object-fit:contain; background:transparent}
   border: 1px solid var(--border);
   border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
-  opacity: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: none;
+}
+.media-item.active{
+  display: block;
 }
 .media-item:hover{
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
+.media-item{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: none;
+  position: relative;
+}
+
 .media-item img{
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 800px;
+  object-fit: contain;
   background: var(--alt);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(0);
+}
+
+.media-item::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(20px);
+  opacity: 0.3;
+  z-index: -1;
 }
 .media-caption{
   padding: 16px;
 }
 .media-caption h4{
   margin: 0 0 8px 0;
-  font-size: 18px;
+  color: var(--text);
 }
 .media-caption p{
   margin: 0;
   color: var(--muted);
   font-size: 14px;
+  line-height: 1.5;
 }
-
-/* Media Gallery Navigation */
 .media-navigation{
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 12px;
   margin-top: 20px;
+}
+.media-counter{
+  color: var(--muted);
+  font-size: 14px;
+  min-width: 60px;
+  text-align: center;
 }
 .media-nav{
   background: var(--card);
   border: 1px solid var(--border);
   color: var(--text);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
+  padding: 10px 16px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -257,21 +263,10 @@ img[alt$="placeholder"]{object-fit:contain; background:transparent}
   color: #041b13;
   border-color: transparent;
 }
-
-/* Media Gallery Grid Layout for Multiple Items */
-.media-gallery.multiple-items{
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.media-nav:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
 }
-.media-gallery.single-item{
-  grid-template-columns: 1fr;
-  justify-items: center;
-}
-.media-gallery.single-item .media-item{
-  max-width: 500px;
-}
-
-/* Console section updates */
-.console h4{font:600 14px/1 Inter, sans-serif; letter-spacing:.3px; margin:0 0 8px; color:var(--brand)}
 
 
 
