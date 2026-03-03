@@ -1,513 +1,1269 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Faraz Ahmad — Robotics, AI, and Agricultural Systems</title>
-    <meta name="description" content="Portfolio of Faraz Ahmad — research, publications, projects, and writing across robotics, computer vision, and precision agriculture." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <nav class="nav">
-          <a class="brand" href="#top">Faraz Ahmad</a>
-          <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-          <ul class="nav-list">
-            <li><a href="#about">About</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#media">Media</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#awards">Awards</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li>
-              <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
-            </li>
-          </ul>
-        </nav>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faraz Ahmad | Robotics &amp; AI Engineer</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%230077cc'/><text x='50' y='72' font-size='60' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial'>F.</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+/* ===== THEME VARIABLES ===== */
+:root,
+[data-theme="light"]{
+  --bg-primary:#f5f7fa;
+  --bg-secondary:#ffffff;
+  --bg-card:#ffffff;
+  --bg-card-hover:#f0f4ff;
+  --accent:#0077cc;
+  --accent2:#6c3ce0;
+  --accent3:#e63946;
+  --accent-gradient:linear-gradient(135deg,#0077cc,#6c3ce0);
+  --accent-gradient2:linear-gradient(135deg,#6c3ce0,#e63946);
+  --text-primary:#1a1a2e;
+  --text-secondary:#555570;
+  --text-muted:#888899;
+  --border:#dde1e8;
+  --glow:0 0 20px rgba(0,119,204,0.15);
+  --nav-bg:rgba(245,247,250,0.8);
+  --nav-bg-scrolled:rgba(255,255,255,0.95);
+  --shadow-color:rgba(0,0,0,0.06);
+  --card-highlight:rgba(0,119,204,0.06);
+  --img-border:rgba(0,119,204,0.3);
+}
+
+[data-theme="dark"]{
+  --bg-primary:#0a0a0f;
+  --bg-secondary:#12121a;
+  --bg-card:#1a1a2e;
+  --bg-card-hover:#222240;
+  --accent:#00d4ff;
+  --accent2:#7b2ff7;
+  --accent3:#ff6b6b;
+  --accent-gradient:linear-gradient(135deg,#00d4ff,#7b2ff7);
+  --accent-gradient2:linear-gradient(135deg,#7b2ff7,#ff6b6b);
+  --text-primary:#f0f0f5;
+  --text-secondary:#a0a0b8;
+  --text-muted:#6a6a82;
+  --border:#2a2a42;
+  --glow:0 0 20px rgba(0,212,255,0.3);
+  --nav-bg:rgba(10,10,15,0.7);
+  --nav-bg-scrolled:rgba(10,10,15,0.95);
+  --shadow-color:rgba(0,0,0,0.3);
+  --card-highlight:rgba(0,212,255,0.08);
+  --img-border:rgba(0,212,255,0.25);
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Inter',sans-serif;background:var(--bg-primary);color:var(--text-primary);overflow-x:hidden;line-height:1.7;transition:background .4s,color .4s}
+
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg-primary)}
+::-webkit-scrollbar-thumb{background:var(--accent2);border-radius:4px}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:18px 0;transition:all .4s ease;backdrop-filter:blur(20px);background:var(--nav-bg);border-bottom:1px solid transparent}
+nav.scrolled{padding:12px 0;background:var(--nav-bg-scrolled);border-bottom:1px solid var(--border);box-shadow:0 2px 20px var(--shadow-color)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:1.4rem;font-weight:800;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.5px}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:.88rem;font-weight:500;letter-spacing:.3px;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent-gradient);transition:width .3s}
+.nav-links a:hover{color:var(--text-primary)}
+.nav-links a:hover::after{width:100%}
+
+/* THEME TOGGLE */
+.theme-toggle{background:none;border:2px solid var(--border);width:42px;height:42px;border-radius:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--text-secondary);transition:all .3s;flex-shrink:0}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent);transform:scale(1.05)}
+[data-theme="light"] .theme-toggle .fa-moon{display:inline}
+[data-theme="light"] .theme-toggle .fa-sun{display:none}
+[data-theme="dark"] .theme-toggle .fa-sun{display:inline}
+[data-theme="dark"] .theme-toggle .fa-moon{display:none}
+
+.nav-right{display:flex;align-items:center;gap:16px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.hamburger span{width:24px;height:2px;background:var(--text-primary);transition:all .3s}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 20%,rgba(0,212,255,0.08) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(123,47,247,0.08) 0%,transparent 50%);animation:heroBgMove 20s ease-in-out infinite alternate}
+@keyframes heroBgMove{0%{transform:translate(0,0)}100%{transform:translate(-5%,3%)}}
+.grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:60px 60px}
+[data-theme="light"] .grid-overlay{background-image:linear-gradient(rgba(0,119,204,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,119,204,0.04) 1px,transparent 1px)}
+[data-theme="light"] .hero-bg::before{background:radial-gradient(ellipse at 30% 20%,rgba(0,119,204,0.06) 0%,transparent 50%),radial-gradient(ellipse at 70% 80%,rgba(108,60,224,0.06) 0%,transparent 50%)}
+.hero-content{max-width:1200px;margin:0 auto;padding:0 30px;position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.hero-photo{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-photo img{width:320px;height:400px;object-fit:cover;border-radius:24px;border:3px solid var(--img-border);box-shadow:0 25px 80px var(--shadow-color),var(--glow);transition:transform .4s,box-shadow .4s}
+.hero-photo:hover img{transform:scale(1.02);box-shadow:0 30px 90px var(--shadow-color),0 0 30px rgba(0,119,204,0.2)}
+.hero-photo::before{content:'';position:absolute;top:-10px;left:-10px;right:-10px;bottom:-10px;border-radius:28px;border:2px dashed rgba(0,119,204,0.12);z-index:-1}
+[data-theme="dark"] .hero-photo::before{border-color:rgba(0,212,255,0.12)}
+.hero-photo-badge{position:absolute;padding:8px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;font-size:.75rem;font-weight:700;color:var(--accent);box-shadow:0 8px 24px var(--shadow-color);display:flex;align-items:center;gap:6px;white-space:nowrap;z-index:1}
+.hero-photo-badge.badge-top{top:-12px;left:50%;transform:translateX(-50%)}
+.hero-photo-badge.badge-bottom{bottom:-12px;right:-10px}
+.hero-photo-badge.badge-left{bottom:40px;left:-24px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--card-highlight);border:1px solid rgba(0,212,255,0.2);padding:6px 16px;border-radius:50px;font-size:.8rem;color:var(--accent);font-weight:500;margin-bottom:24px;letter-spacing:.5px}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#00e676;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:1.05;margin-bottom:16px;letter-spacing:-2px}
+.hero h1 .gradient-text{background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--text-secondary);max-width:640px;margin-bottom:36px;font-weight:300;line-height:1.8}
+.hero-stats{display:flex;gap:48px;margin-bottom:40px;flex-wrap:wrap}
+.hero-stat{text-align:left}
+.hero-stat .num{font-size:2.2rem;font-weight:800;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;line-height:1.2;font-family:'JetBrains Mono',monospace}
+.hero-stat .label{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:12px;font-size:.92rem;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;border:none}
+.btn-primary{background:var(--accent-gradient);color:#fff;box-shadow:0 4px 24px rgba(0,212,255,0.3)}
+[data-theme="light"] .btn-primary{color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,212,255,0.4)}
+.btn-outline{background:transparent;color:var(--text-primary);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+/* HERO TECH STACK BAR */
+.hero-tech-bar{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.hero-tech-bar .tech-label{font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-right:4px}
+.tech-icon{position:relative;width:44px;height:44px;border-radius:12px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--text-secondary);transition:all .3s;cursor:default}
+.tech-icon:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-4px);box-shadow:var(--glow)}
+.tech-icon .tech-tooltip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%) scale(0.8);background:var(--bg-card);border:1px solid var(--border);padding:4px 10px;border-radius:8px;font-size:.68rem;font-weight:600;color:var(--accent);white-space:nowrap;opacity:0;pointer-events:none;transition:all .2s;box-shadow:0 4px 16px var(--shadow-color)}
+.tech-icon:hover .tech-tooltip{opacity:1;transform:translateX(-50%) scale(1)}
+.tech-icon svg{width:22px;height:22px}
+
+/* HERO SOCIAL LINKS */
+.hero-socials{margin-top:20px;display:flex;gap:12px;align-items:center}
+.hero-socials .social-label{font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-right:4px}
+.social-link{width:42px;height:42px;border-radius:50%;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--text-secondary);text-decoration:none;transition:all .3s}
+.social-link:hover{transform:translateY(-4px) scale(1.1)}
+.social-link.linkedin:hover{border-color:#0a66c2;color:#0a66c2;box-shadow:0 4px 16px rgba(10,102,194,0.25)}
+.social-link.scholar:hover{border-color:#4285f4;color:#4285f4;box-shadow:0 4px 16px rgba(66,133,244,0.25)}
+.social-link.github:hover{border-color:var(--text-primary);color:var(--text-primary);box-shadow:0 4px 16px var(--shadow-color)}
+.social-link.instagram:hover{border-color:#e4405f;color:#e4405f;box-shadow:0 4px 16px rgba(228,64,95,0.25)}
+
+/* FLOATING ROBOTICS ICONS */
+.hero-floating-icons{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.floating-icon{position:absolute;font-size:1.6rem;opacity:.12;animation:floatIcon linear infinite}
+[data-theme="light"] .floating-icon{opacity:.08}
+@keyframes floatIcon{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-30px) rotate(180deg)}100%{transform:translateY(0) rotate(360deg)}}
+.floating-icon:nth-child(1){top:15%;right:8%;font-size:2.5rem;color:var(--accent);animation-duration:8s}
+.floating-icon:nth-child(2){top:25%;right:18%;font-size:2rem;color:var(--accent2);animation-duration:10s;animation-delay:-2s}
+.floating-icon:nth-child(3){top:60%;right:6%;font-size:2.2rem;color:var(--accent3);animation-duration:12s;animation-delay:-4s}
+.floating-icon:nth-child(4){top:70%;right:22%;font-size:1.8rem;color:var(--accent);animation-duration:9s;animation-delay:-1s}
+.floating-icon:nth-child(5){top:40%;right:12%;font-size:3rem;color:var(--accent2);animation-duration:14s;animation-delay:-6s}
+.floating-icon:nth-child(6){top:85%;right:15%;font-size:1.5rem;color:var(--accent);animation-duration:11s;animation-delay:-3s}
+.floating-icon:nth-child(7){top:10%;right:30%;font-size:1.8rem;color:var(--accent3);animation-duration:13s;animation-delay:-5s}
+.floating-icon:nth-child(8){top:50%;right:28%;font-size:2rem;color:var(--accent);animation-duration:10s;animation-delay:-7s}
+.floating-icon:nth-child(9){top:35%;right:35%;font-size:1.6rem;color:var(--accent2);animation-duration:15s;animation-delay:-2s}
+.floating-icon:nth-child(10){top:75%;right:32%;font-size:2.4rem;color:var(--accent);animation-duration:11s;animation-delay:-8s}
+
+/* PARTICLES */
+.particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.particle{position:absolute;border-radius:50%;animation:float linear infinite;opacity:.4}
+@keyframes float{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:.4}90%{opacity:.4}100%{transform:translateY(-100px) rotate(720deg);opacity:0}}
+
+/* ===== SECTIONS ===== */
+section{padding:100px 0}
+.container{max-width:1200px;margin:0 auto;padding:0 30px}
+.section-header{margin-bottom:64px}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.section-label i{font-size:.7rem}
+.section-title{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;letter-spacing:-1px;margin-bottom:12px}
+.section-desc{color:var(--text-secondary);max-width:560px;font-size:1rem}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-text p{color:var(--text-secondary);margin-bottom:16px;font-size:.98rem}
+.about-text p strong{color:var(--text-primary)}
+
+.about-photo-wrapper{display:flex;justify-content:center;align-items:flex-start}
+.about-photo{position:relative}
+.about-photo img{width:300px;height:360px;object-fit:cover;border-radius:20px;border:3px solid var(--img-border);box-shadow:0 20px 60px var(--shadow-color);transition:transform .4s,box-shadow .4s}
+.about-photo:hover img{transform:scale(1.02);box-shadow:0 25px 70px var(--shadow-color),var(--glow)}
+.about-photo::before{content:'';position:absolute;top:-8px;left:-8px;right:-8px;bottom:-8px;border-radius:24px;border:2px dashed rgba(0,212,255,0.15);z-index:-1}
+.about-photo-badge{position:absolute;padding:8px 14px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;font-size:.72rem;font-weight:700;color:var(--accent);box-shadow:0 8px 24px var(--shadow-color);white-space:nowrap;display:flex;align-items:center;gap:6px}
+.about-photo-badge:nth-child(2){bottom:-12px;left:-20px}
+.about-photo-badge:nth-child(3){top:-12px;right:-20px}
+.about-photo-badge:nth-child(4){top:50%;right:-40px;transform:translateY(-50%)}
+
+.about-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.highlight-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .3s;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:140px}
+.highlight-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--accent-gradient);opacity:0;transition:opacity .3s}
+.highlight-card:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-4px);box-shadow:var(--glow)}
+.highlight-card:hover::before{opacity:1}
+.highlight-card .icon{font-size:1.6rem;margin-bottom:12px;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.highlight-card h4{font-size:.92rem;font-weight:700;margin-bottom:4px}
+.highlight-card p{font-size:.8rem;color:var(--text-muted)}
+
+/* ===== EXPERIENCE TIMELINE ===== */
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),var(--accent3))}
+.timeline-item{position:relative;margin-bottom:48px}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{position:absolute;left:-40px;top:8px;width:30px;height:30px;border-radius:50%;background:var(--bg-primary);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;z-index:2}
+.timeline-dot i{font-size:.7rem;color:var(--accent)}
+.timeline-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:32px;transition:all .3s}
+.timeline-card:hover{border-color:rgba(0,212,255,0.3);box-shadow:var(--glow);transform:translateX(8px)}
+.timeline-date{font-size:.78rem;color:var(--accent);font-weight:600;font-family:'JetBrains Mono',monospace;margin-bottom:8px}
+.timeline-role{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.timeline-company{font-size:.92rem;color:var(--accent2);font-weight:600;margin-bottom:12px}
+.timeline-company i{margin-right:6px}
+.timeline-desc{color:var(--text-secondary);font-size:.9rem;line-height:1.8}
+.timeline-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:600;background:var(--card-highlight);color:var(--accent);border:1px solid rgba(0,212,255,0.15)}
+
+/* ===== PROJECTS ===== */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.project-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:36px;transition:all .4s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent-gradient);transform:scaleX(0);transition:transform .4s;transform-origin:left}
+.project-card:hover::before{transform:scaleX(1)}
+.project-card:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-6px);box-shadow:0 20px 60px var(--shadow-color),var(--glow)}
+.project-icon{width:56px;height:56px;border-radius:14px;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;margin-bottom:20px}
+.project-card h3{font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.project-card .project-location{font-size:.78rem;color:var(--accent);font-weight:500;margin-bottom:12px}
+.project-card p{color:var(--text-secondary);font-size:.88rem;line-height:1.7;margin-bottom:16px}
+.project-tech{display:flex;flex-wrap:wrap;gap:6px}
+.project-tech span{padding:4px 10px;border-radius:6px;font-size:.7rem;font-weight:600;background:rgba(123,47,247,0.1);color:var(--accent2);border:1px solid rgba(123,47,247,0.2)}
+.project-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.project-card.featured .project-visual{background:var(--card-highlight);border:1px solid var(--border);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:12px}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+[data-theme="light"] .stat-row{border-bottom-color:rgba(0,0,0,0.05)}
+.stat-row:last-child{border:none}
+.stat-row .stat-label{font-size:.82rem;color:var(--text-muted)}
+.stat-row .stat-value{font-size:.92rem;font-weight:700;color:var(--accent);font-family:'JetBrains Mono',monospace}
+
+/* ===== PUBLICATIONS ===== */
+.pub-list{display:flex;flex-direction:column;gap:16px}
+.pub-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:28px 32px;transition:all .3s;display:flex;gap:24px;align-items:flex-start}
+.pub-card:hover{border-color:rgba(0,212,255,0.3);transform:translateX(8px);box-shadow:var(--glow)}
+.pub-icon{min-width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.pub-icon.published{background:rgba(0,212,255,0.1);color:var(--accent)}
+.pub-icon.pending{background:rgba(123,47,247,0.1);color:var(--accent2)}
+.pub-icon.patent{background:rgba(255,107,107,0.1);color:var(--accent3)}
+.pub-card h4{font-size:.98rem;font-weight:600;margin-bottom:4px;line-height:1.5}
+.pub-card .pub-authors{font-size:.8rem;color:var(--text-muted);margin-bottom:6px}
+.pub-card .pub-status{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:20px}
+.pub-status.published{background:rgba(0,212,255,0.1);color:var(--accent)}
+.pub-status.pending{background:rgba(123,47,247,0.1);color:var(--accent2)}
+.pub-status.patent{background:rgba(255,107,107,0.1);color:var(--accent3)}
+.pub-status.review{background:rgba(255,193,7,0.1);color:#ffc107}
+
+/* ===== AWARDS ===== */
+.awards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+.award-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:all .3s;display:flex;gap:20px;align-items:flex-start;text-decoration:none;color:inherit}
+.award-card:hover{border-color:rgba(255,107,107,0.3);transform:translateY(-4px);box-shadow:0 12px 40px var(--shadow-color)}
+.award-icon{min-width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#ffd700,#ff8c00);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#000;flex-shrink:0}
+.award-card h4{font-size:.92rem;font-weight:700;margin-bottom:4px;line-height:1.4}
+.award-card p{font-size:.78rem;color:var(--text-muted)}
+.award-link{font-size:.72rem;color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:4px;margin-top:4px}
+
+/* ===== SKILLS ===== */
+.skills-section{background:var(--bg-secondary)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.skill-category{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s}
+.skill-category:hover{border-color:rgba(0,212,255,0.2);transform:translateY(-4px)}
+.skill-cat-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.skill-cat-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.skill-cat-header h3{font-size:1rem;font-weight:700}
+.skill-items{display:flex;flex-wrap:wrap;gap:8px}
+.skill-pill{padding:8px 16px;border-radius:10px;font-size:.82rem;font-weight:500;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text-secondary);transition:all .3s}
+[data-theme="light"] .skill-pill{background:rgba(0,0,0,0.02)}
+.skill-pill:hover{background:var(--card-highlight);border-color:rgba(0,212,255,0.2);color:var(--accent)}
+
+/* ===== CERTIFICATIONS ===== */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+.cert-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .3s;display:flex;gap:20px;align-items:center;text-decoration:none;color:inherit;position:relative}
+.cert-card:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-4px);box-shadow:var(--glow)}
+.cert-logo{min-width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:rgba(255,255,255,0.06);overflow:hidden;flex-shrink:0}
+[data-theme="light"] .cert-logo{background:rgba(0,0,0,0.04)}
+.cert-logo img{width:40px;height:40px;object-fit:contain}
+.cert-logo .logo-text{font-weight:900;font-size:1.1rem;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cert-card h4{font-size:.9rem;font-weight:600;margin-bottom:2px;line-height:1.4}
+.cert-card .cert-desc{font-size:.78rem;color:var(--text-muted)}
+.cert-provider{font-size:.72rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.5px}
+.cert-link-icon{position:absolute;top:12px;right:14px;font-size:.85rem;color:var(--text-muted);opacity:0;transition:all .3s}
+.cert-card:hover .cert-link-icon{opacity:1;color:var(--accent)}
+
+/* ===== EDUCATION ===== */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.edu-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:36px;transition:all .3s;position:relative;overflow:hidden}
+.edu-card::after{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(0,212,255,0.06) 0%,transparent 70%);pointer-events:none}
+.edu-card:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-4px)}
+.edu-degree{font-size:.78rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.edu-card h3{font-size:1.15rem;font-weight:700;margin-bottom:4px}
+.edu-school{font-size:.92rem;color:var(--accent2);font-weight:500;margin-bottom:12px}
+.edu-gpa{display:inline-flex;align-items:center;gap:8px;background:var(--card-highlight);border:1px solid rgba(0,212,255,0.15);padding:6px 14px;border-radius:8px;font-size:.82rem;font-weight:700;color:var(--accent);font-family:'JetBrains Mono',monospace;margin-bottom:12px}
+.edu-card .courses{font-size:.82rem;color:var(--text-muted);line-height:1.7}
+
+/* ===== CONTACT ===== */
+.contact-section{background:var(--bg-secondary);position:relative;overflow:hidden}
+.contact-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,255,0.05) 0%,transparent 70%);pointer-events:none}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-item{display:flex;gap:16px;align-items:center}
+.contact-icon{width:52px;height:52px;border-radius:14px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--accent);flex-shrink:0;transition:all .3s}
+.contact-item:hover .contact-icon{border-color:var(--accent);box-shadow:var(--glow)}
+.contact-item h4{font-size:.92rem;font-weight:600;margin-bottom:2px}
+.contact-item p,.contact-item a{font-size:.88rem;color:var(--text-secondary);text-decoration:none;transition:color .3s}
+.contact-item a:hover{color:var(--accent)}
+.contact-cta h2{font-size:2.2rem;font-weight:800;margin-bottom:16px;letter-spacing:-0.5px}
+.contact-cta p{color:var(--text-secondary);margin-bottom:32px;font-size:1rem;line-height:1.8}
+
+/* ===== FOOTER ===== */
+footer{padding:32px 0;border-top:1px solid var(--border)}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 30px;display:flex;justify-content:space-between;align-items:center}
+.footer-inner p{font-size:.82rem;color:var(--text-muted)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{color:var(--text-muted);font-size:1.1rem;transition:color .3s;text-decoration:none}
+.footer-links a:hover{color:var(--accent)}
+
+/* ===== ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.active{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  .hero-photo{justify-content:center;margin-top:32px;order:1}
+  .hero-photo img{width:260px;height:320px}
+  .hero-text{order:0}
+  .hero-stats{justify-content:center}
+  .hero-buttons{justify-content:center}
+  .hero-eyebrow{margin-left:auto;margin-right:auto}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .project-card.featured{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .edu-grid{grid-template-columns:1fr}
+  .about-photo-wrapper{justify-content:center;margin-bottom:32px}
+  .about-photo-badge:nth-child(4){display:none}
+  .about-highlights{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:0;left:0;width:100%;height:100vh;background:var(--nav-bg-scrolled);flex-direction:column;align-items:center;justify-content:center;gap:32px;backdrop-filter:blur(20px)}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .hero-stats{gap:32px}
+  .hero-photo img{width:220px;height:280px}
+  .hero-photo-badge{font-size:.65rem;padding:6px 10px}
+  .skills-grid{grid-template-columns:1fr}
+  .awards-grid,.certs-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.4rem;letter-spacing:-1px}
+  section{padding:70px 0}
+  .floating-icon{display:none}
+  .about-photo img{width:240px;height:290px}
+  .about-highlights{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">FA.</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" onclick="closeNav()">About</a></li>
+      <li><a href="#experience" onclick="closeNav()">Experience</a></li>
+      <li><a href="#projects" onclick="closeNav()">Projects</a></li>
+      <li><a href="#publications" onclick="closeNav()">Publications</a></li>
+      <li><a href="#skills" onclick="closeNav()">Skills</a></li>
+      <li><a href="#certifications" onclick="closeNav()">Certifications</a></li>
+      <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+      </button>
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
       </div>
-    </header>
+    </div>
+  </div>
+</nav>
 
-    <main id="top">
-      <section class="hero">
-        <div class="container narrow hero-grid">
-          <div class="hero-intro">
-            <h1>Robotics and AI for Agriculture</h1>
-          <p class="lede">I build autonomous systems that see, decide, and act in the field - turning research into tools that scale from greenhouses to commercial nurseries.</p>
-          <div class="hero-cta">
-            <a class="button" href="#research">Explore research</a>
-            <a class="button button-secondary" href="#publications">See publications</a>
-          </div>
-          <div class="contact-strip">
-            <a href="mailto:fza0070@auburn.edu">fza0070@auburn.edu</a>
-            <span>·</span>
-            <a href="https://www.linkedin.com/in/mfaraz-ahmad/" target="_blank" rel="noopener">LinkedIn</a>
-            <span>·</span>
-            <a href="../Faraz%20resume%20Latest.pdf" target="_blank" rel="noopener">CV (PDF)</a>
-          </div>
-          </div>
-          <figure class="avatar-wrap">
-            <img class="avatar" src="./assets/images/portfolio.jpeg" alt="Portrait placeholder" />
-          </figure>
-          <div class="stat-grid">
-            <div class="stat">
-              <div class="stat-num">4.00</div>
-              <div class="stat-label">MS CGPA</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">2</div>
-              <div class="stat-label">Peer-reviewed in 2024</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">7</div>
-              <div class="stat-label">In-progress papers / patents</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num">15+</div>
-              <div class="stat-label">Robotics/AI projects</div>
-            </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="grid-overlay"></div>
+    <div class="particles" id="particles"></div>
+  </div>
+
+  <!-- Floating Robotics Icons -->
+  <div class="hero-floating-icons">
+    <i class="fas fa-robot floating-icon"></i>
+    <i class="fas fa-microchip floating-icon"></i>
+    <i class="fas fa-gears floating-icon"></i>
+    <i class="fas fa-brain floating-icon"></i>
+    <i class="fas fa-eye floating-icon"></i>
+    <i class="fas fa-satellite-dish floating-icon"></i>
+    <i class="fas fa-network-wired floating-icon"></i>
+    <i class="fas fa-code-branch floating-icon"></i>
+    <i class="fas fa-diagram-project floating-icon"></i>
+    <i class="fas fa-bolt floating-icon"></i>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-eyebrow"><span class="dot"></span> Available for Robotics &amp; AI Roles</div>
+      <h1>Building Intelligent<br><span class="gradient-text">Robots That Farm.</span></h1>
+      <p class="hero-sub">Robotics &amp; AI Engineer specializing in autonomous systems, computer vision, and deep learning for precision agriculture. MS @ Auburn University with a perfect 4.0 GPA.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num" data-target="9">0</span><span class="label">Publications &amp; Patents</span></div>
+        <div class="hero-stat"><span class="num" data-target="4">0</span><span class="label">Years Experience</span></div>
+        <div class="hero-stat"><span class="num" data-target="5">0</span><span class="label">Awards Won</span></div>
+        <div class="hero-stat"><span class="num" data-target="4.0" data-decimals="1">0</span><span class="label">GPA (MS)</span></div>
+      </div>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary"><i class="fas fa-robot"></i> View My Work</a>
+        <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Get In Touch</a>
+      </div>
+      <div class="hero-tech-bar">
+        <span class="tech-label">Tech I work with:</span>
+        <div class="tech-icon">
+          <svg viewBox="0 0 128 128"><path fill="#3776AB" d="M49.33 62h29.159C86.606 62 93 55.132 93 46.981V19.183c0-7.912-6.632-13.856-14.555-15.176-5.014-.835-10.195-1.215-15.187-1.191-4.99.023-9.612.448-13.805 1.191C37.098 6.188 35 10.758 35 19.183V30h29v4H23.776c-8.484 0-15.914 5.108-18.237 14.811-2.681 11.12-2.8 18.062 0 29.674C7.473 86.746 12.321 92 20.776 92H31V79.952c0-9.66 8.352-18.168 18.33-17.952z"/><path fill="#FFD43B" d="M91.682 28H63V24H35.145c-8.636 0-11.91 6.13-14.467 14.811C17.88 49.924 18.001 56.864 20.682 68c1.963 8.161 5.631 14.811 14.145 14.811H46v-11.19c0-10.662 9.087-19.621 18.33-19.621h29.159c7.907 0 14.511-6.546 14.511-14.512V19.183c0-7.736-6.79-13.508-14.511-15.176C88.542 2.898 84.7 2.5 80.333 2.507c-4.37.008-8.994.423-13.143 1.191C54.89 6.188 53 10.535 53 19.183V28h29v4H63z"/><circle fill="#fff" cx="62.5" cy="11.5" r="4.5"/><circle fill="#fff" cx="65.5" cy="81.5" r="4.5"/></svg>
+          <span class="tech-tooltip">Python</span>
+        </div>
+        <div class="tech-icon">
+          <svg viewBox="0 0 128 128"><path fill="#659AD2" d="M115.4 30.7L67.1 2.9c-.8-.5-1.9-.7-3.1-.7-1.2 0-2.3.3-3.1.7l-48 27.9c-1.7 1-2.9 3.5-2.9 5.4v55.7c0 1.1.2 2.3.9 3.4.5.8 1.2 1.5 2 1.9l48.2 27.9c.8.5 1.9.7 3.1.7 1.2 0 2.3-.3 3.1-.7l48-27.9c1.7-1 2.9-3.5 2.9-5.4V36.1c0-1.9-1.2-4.4-2.8-5.4z"/><path fill="#fff" d="M64 88c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-40c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16z"/><text x="64" y="72" text-anchor="middle" fill="#fff" font-size="24" font-weight="bold" font-family="Arial">++</text></svg>
+          <span class="tech-tooltip">C++</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-robot"></i>
+          <span class="tech-tooltip">ROS / ROS 2</span>
+        </div>
+        <div class="tech-icon">
+          <svg viewBox="0 0 128 128"><path fill="#EE4C2C" d="M64 8C33.1 8 8 33.1 8 64s25.1 56 56 56 56-25.1 56-56S94.9 8 64 8zm24 60.5c0 4.7-3.8 8.5-8.5 8.5h-31c-4.7 0-8.5-3.8-8.5-8.5v-17c0-4.7 3.8-8.5 8.5-8.5h31c4.7 0 8.5 3.8 8.5 8.5v17z"/><circle fill="#EE4C2C" cx="80" cy="40" r="8"/></svg>
+          <span class="tech-tooltip">PyTorch</span>
+        </div>
+        <div class="tech-icon">
+          <svg viewBox="0 0 128 128"><path fill="#76B900" d="M30.9 56.5v14.8l-14.8 8.5V55.6l14.8-8.5v9.4zm0-25.2L16.1 40l14.8 8.5 14.8-8.5-14.8-8.7zm16.5 42.7l-14.8 8.5v17l14.8-8.5V74zm0-25.3l-14.8 8.6L47.4 66l14.8-8.6-14.8-8.7zm16.5 42.8l-14.8 8.5v17l14.8-8.5v-17zm0-25.2l-14.8 8.5 14.8 8.6 14.8-8.6-14.8-8.5zm16.5 42.7L65.6 118v17l14.8-8.5V109zm0-25.2L65.6 92.3l14.8 8.6 14.8-8.6-14.8-8.5zM97 63.1L82.2 71.6V88l14.8-8.5V63.1z"/><path fill="#76B900" d="M97 37.9L82.2 46.4l14.8 8.5 14.8-8.5L97 37.9zm0 42.7V97l14.8-8.5V72.1L97 80.6z"/></svg>
+          <span class="tech-tooltip">NVIDIA / CUDA</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fab fa-linux"></i>
+          <span class="tech-tooltip">Linux / Ubuntu</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-brain"></i>
+          <span class="tech-tooltip">Deep Learning</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-gamepad"></i>
+          <span class="tech-tooltip">Reinforcement Learning</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-eye"></i>
+          <span class="tech-tooltip">Computer Vision</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-wand-magic-sparkles"></i>
+          <span class="tech-tooltip">Generative AI</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-cube"></i>
+          <span class="tech-tooltip">CAD / SolidWorks</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-gears"></i>
+          <span class="tech-tooltip">Mechatronics</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fas fa-route"></i>
+          <span class="tech-tooltip">SLAM / Navigation</span>
+        </div>
+        <div class="tech-icon">
+          <i class="fab fa-docker"></i>
+          <span class="tech-tooltip">Docker</span>
+        </div>
+      </div>
+      <div class="hero-socials">
+        <span class="social-label">Find me on:</span>
+        <a href="https://www.linkedin.com/in/mfaraz-ahmad/" target="_blank" class="social-link linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://scholar.google.com/citations?user=gI7aa8wAAAAJ&hl=en" target="_blank" class="social-link scholar" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="https://github.com/its-faraz" target="_blank" class="social-link github" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/its._.farazz/" target="_blank" class="social-link instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="portfolio.jpg" alt="Faraz Ahmad - Robotics & AI Engineer">
+      <div class="hero-photo-badge badge-top"><i class="fas fa-robot" style="color:var(--accent)"></i> Robotics Engineer</div>
+      <div class="hero-photo-badge badge-bottom"><i class="fas fa-star" style="color:#ffd700"></i> 4.0 GPA</div>
+      <div class="hero-photo-badge badge-left"><i class="fas fa-trophy" style="color:#ffd700"></i> FIRA 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-user"></i> About Me</div>
+      <h2 class="section-title">Robotics Engineer with a<br>Passion for Intelligent Automation</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p><strong>I'm Faraz Ahmad</strong>, a Robotics &amp; AI Engineer with 4+ years of experience building full-stack autonomous systems. I hold an M.S. in Biosystems Engineering from Auburn University (4.0 GPA) and a B.S. in Mechanical Engineering from GIKI, Pakistan (graduated with distinction).</p>
+        <p>My expertise spans the full robotics pipeline: from <strong>perception and sensor fusion</strong> (RGB, depth, hyperspectral, LiDAR, IMU, RTK-GPS) to <strong>navigation and control</strong> (ROS/ROS2, SLAM, path planning, reinforcement learning) to <strong>edge deployment</strong> (NVIDIA Jetson Orin, TensorRT, real-time inference). I've built robots that autonomously navigate nursery rows, count and assess thousands of plants, and deliver actionable insights to farmers.</p>
+        <p>My work earned the <strong>Excellence in Productivity Award at the FIRA World Ag Robotics Forum 2024</strong> in Sacramento, competing against teams from around the globe. I also hold <strong>2 pending patents</strong> in AI-driven agricultural analytics and have <strong>multiple publications</strong> in top venues.</p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="about-photo-wrapper">
+          <div class="about-photo">
+            <img src="intro.jpeg" alt="Faraz Ahmad - Robotics & AI Engineer" loading="lazy">
+            <div class="about-photo-badge"><i class="fas fa-clock" style="color:var(--accent)"></i> 4+ Years Experience</div>
+            <div class="about-photo-badge"><i class="fas fa-robot" style="color:var(--accent2)"></i> Robotics &amp; AI</div>
+            <div class="about-photo-badge"><i class="fas fa-bullseye" style="color:var(--accent3)"></i> End-to-End Autonomy</div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+    <div class="about-highlights reveal" style="margin-top:48px">
+      <div class="highlight-card">
+        <div class="icon"><i class="fas fa-robot"></i></div>
+        <h4>Full-Stack Robotics</h4>
+        <p>Perception, navigation, control &amp; deployment</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon"><i class="fas fa-brain"></i></div>
+        <h4>Deep Learning &amp; AI</h4>
+        <p>PyTorch, YOLO, RL, GCNs, SAM, DINO</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon"><i class="fas fa-microchip"></i></div>
+        <h4>Edge Deployment</h4>
+        <p>NVIDIA Jetson Orin, TensorRT inference</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon"><i class="fas fa-trophy"></i></div>
+        <h4>Award-Winning</h4>
+        <p>FIRA 2024 Champion, research awards</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section id="about" class="section">
-        <div class="container narrow prose">
-          <h2>About</h2>
-          <p class="dropcap">As a mechanical engineer specializing in robotics, AI, and computer vision, I focus on field-ready autonomy for agriculture. My current work at Auburn University (Precision Agriculture Lab) advances navigation, perception, and inventory workflows for the Amiga farm-ng platform, combining deep learning, reinforcement learning, and ROS/Gazebo simulation, accelerated on NVIDIA Jetson.</p>
-          <div class="two-up">
-            <div>
-              <h3>Education</h3>
-              <div class="edu-cards">
-                <article class="edu-card">
-                  <header>
-                    <h4>M.S. — Biosystems Engineering</h4>
-                    <span class="meta">Auburn University · 2024–2025 · CGPA 4.00/4.00</span>
-                  </header>
-                  <p class="muted">Experimental Statistics, Engines, Mechatronics, Deterministic Modeling, Geospatial Technologies.</p>
-                </article>
-                <article class="edu-card">
-                  <header>
-                    <h4>B.S. — Mechanical Engineering</h4>
-                    <span class="meta">Ghulam Ishaq Khan Institute (GIKI) · 2018–2022 · CGPA 3.51/4.00</span>
-                  </header>
-                  <p class="muted">Advanced Calculus, Linear Algebra, Differential Equations, Numerical Analysis, Probability & Statistics, AI for Engineers, Robotics, System Dynamics & Control, C++.</p>
-                </article>
-              </div>
-            </div>
-            <div>
-              <h3>Research Focus</h3>
-              <ul class="bulleted">
-                <li>Vision‑centric autonomy for nurseries (counting, QA, inventory)</li>
-                <li>Deep learning (detection, segmentation, tracking) + RL for navigation/control</li>
-                <li>Hyperspectral analysis for plant stress and phenotype traits</li>
-                <li>SLAM and depth‑aware perception for challenging outdoor scenes</li>
-                <li>Path planning (A*/D*/RRT*, DRL) and multi‑modal sensor fusion</li>
-                <li>ROS Noetic/Humble, Gazebo/ignition, NVIDIA Jetson acceleration</li>
-                <li>Geospatial analytics and deterministic modeling for field operations</li>
-                <li>Data engineering for robotics datasets; metrics and evaluation suites</li>
-              </ul>
-            </div>
+<!-- EDUCATION -->
+<section id="education" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-graduation-cap"></i> Education</div>
+      <h2 class="section-title">Academic Foundation</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-degree">Master of Science</div>
+        <h3>Biosystems Engineering (AI &amp; Robotics Research)</h3>
+        <div class="edu-school"><i class="fas fa-university"></i> Auburn University, Alabama, USA</div>
+        <div class="edu-gpa"><i class="fas fa-star"></i> GPA: 4.00 / 4.00</div>
+        <div class="courses">Experimental Statistics, Engines, Mechatronics, Deterministic Modeling, Geospatial Technologies, Database Systems, Data Mining</div>
+      </div>
+      <div class="edu-card reveal reveal-delay-1">
+        <div class="edu-degree">Bachelor of Science in Engineering</div>
+        <h3>Mechanical Engineering</h3>
+        <div class="edu-school"><i class="fas fa-university"></i> GIKI, Pakistan</div>
+        <div class="edu-gpa"><i class="fas fa-star"></i> GPA: 3.51 / 4.00 &mdash; Distinction</div>
+        <div class="courses">Advanced Calculus, Linear Algebra, Differential Equations, Numerical Analysis, Probability &amp; Statistics, AI for Engineers, Robotics, System Dynamics &amp; Control, C++</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-briefcase"></i> Experience</div>
+      <h2 class="section-title">Where I've Built Robots</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"><i class="fas fa-flask"></i></div>
+        <div class="timeline-card">
+          <div class="timeline-date">MAY 2024 &mdash; PRESENT</div>
+          <div class="timeline-role">Graduate Research Assistant</div>
+          <div class="timeline-company"><i class="fas fa-university"></i> Auburn University &mdash; Precision Agriculture Lab</div>
+          <p class="timeline-desc">Leading research on autonomous navigation for the Amiga farm-ng robot. Automating plant counting, quality assessment, and inventory management in large commercial nurseries. Designed deep learning pipelines for detection, segmentation, and tracking using PyTorch/YOLO. Built modular ROS1/ROS2 stacks combining perception, localization, planning, and control. Validated in Gazebo and Isaac Sim before outdoor field deployment on NVIDIA Jetson Orin.</p>
+          <div class="timeline-tags">
+            <span class="tag">ROS/ROS2</span><span class="tag">PyTorch</span><span class="tag">YOLO</span><span class="tag">NVIDIA Jetson</span><span class="tag">Gazebo</span><span class="tag">Computer Vision</span><span class="tag">Deep Learning</span><span class="tag">SLAM</span><span class="tag">Sensor Fusion</span>
           </div>
         </div>
-      </section>
-
-      <div class="research-experience-grid">
-        <section id="research" class="section alt">
-          <div class="container narrow prose">
-            <h2>Research Projects</h2>
-            <article class="feature">
-              <img src="./assets/images/nursery-robot.jpeg" alt="Autonomous Nursery Management Robot placeholder" />
-              <div>
-                <h3>Autonomous Nursery Management Robot</h3>
-                <p>Developing an autonomous robot for large nurseries to automate plant counting, quality assessment, and inventory management. Depth-aware vision, robust control, and modular ROS architecture — validated in Gazebo and targeted for field deployment on Jetson.</p>
-                <p class="meta">Auburn University · 2024—Ongoing</p>
-              </div>
-            </article>
-            <article class="feature">
-              <img src="./assets/images/holonomic-robot.png" alt="Holonomic Robot Path Planning placeholder" />
-              <div>
-                <h3>Holonomic Collaborative Robot: Path Planning via DRL + SLAM</h3>
-                <p>End-to-end pipeline: MATLAB/Simulink modeling, Python training, Gazebo/ROS Noetic validation, and physical testing. Combined deep RL and SLAM for reliable navigation in changing environments.</p>
-                <p class="meta">GIKI Manufacturing Lab · 2021—2022</p>
-              </div>
-            </article>
-            <article class="feature">
-              <img src="./assets/images/strawberry-vision.png" alt="Strawberry vision analytics placeholder" />
-              <div>
-                <h3>Strawberry Vision Analytics</h3>
-                <p>RGB data collection → storage → model training → dashboard. Detection models and actionable insights for yield and treatments.</p>
-                <p class="meta">TRIC Robotics · 2025</p>
-              </div>
-            </article>
-            <article class="feature">
-              <img src="./assets/images/vision.jpg" alt="3D printer CV reliability placeholder" />
-              <div>
-                <h3>3D Printer Reliability with CV</h3>
-                <p>Spaghetti detection and BTT Pi integrations to reduce failure modes in distributed 3D printing setups.</p>
-                <p class="meta">Mech Solutions · 2023–2024</p>
-              </div>
-            </article>
-            <article class="feature">
-              <img src="./assets/images/overhead.JPG" alt="Overhead camera system placeholder" />
-              <div>
-                <h3>Robotic Overhead Camera System</h3>
-                <p>Design and development for automated greenhouse monitoring — to be published.</p>
-                <p class="meta">Auburn · Pending</p>
-              </div>
-            </article>
-            <article class="feature">
-              <img src="./assets/images/KBTrack.png" alt="KBTrack placeholder" />
-              <div>
-                <h3>KBTrack: Long-term Plant Tracking</h3>
-                <p>Cloud-enabled segmentation + tracking for counting/inventory — patent pending.</p>
-                <p class="meta">Auburn · Pending</p>
-              </div>
-            </article>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"><i class="fas fa-industry"></i></div>
+        <div class="timeline-card">
+          <div class="timeline-date">MAY 2025 &mdash; AUG 2025</div>
+          <div class="timeline-role">Robotics Engineering Intern</div>
+          <div class="timeline-company"><i class="fas fa-building"></i> TRIC Robotics Inc. &mdash; California</div>
+          <p class="timeline-desc">Led end-to-end pipeline development for strawberry data collection, storage, analysis, and database management. Built PyTorch vision models for strawberry detection and yield estimation. Developed a farmer-facing web dashboard for yield prediction, treatment summaries, and actionable insights. Co-designed and validated a predatory mite applicator robot for precision pest management.</p>
+          <div class="timeline-tags">
+            <span class="tag">PyTorch</span><span class="tag">Jetson Orin</span><span class="tag">Computer Vision</span><span class="tag">Web Development</span><span class="tag">Field Robotics</span>
           </div>
-        </section>
-
-        <section id="experience" class="section">
-          <div class="container narrow">
-            <h2>Experience</h2>
-            <div class="timeline-legend">
-              <span class="pill pill-uni">Academia</span>
-              <span class="pill pill-ind">Industry</span>
-              <span class="pill pill-int">Internship</span>
-            </div>
-            <div class="v-timeline">
-              <div class="vt-item">
-                <div class="vt-dot pill-uni"></div>
-                <div class="vt-content">
-                  <h3>Graduate Research Assistant · Auburn University</h3>
-                  <p class="meta">May 2024 — Present · Precision Agriculture Lab</p>
-                  <p>Autonomous navigation and perception on farm‑ng Amiga: deep learning + RL, ROS/Gazebo, NVIDIA Jetson, inventory and QA workflows for large nurseries.</p>
-                </div>
-              </div>
-              <div class="vt-item">
-                <div class="vt-dot pill-int"></div>
-                <div class="vt-content">
-                  <h3>Robotics Engineering Intern · TRIC Robotics</h3>
-                  <p class="meta">May 2025 — Aug 2025</p>
-                  <p>RGB pipeline for strawberry yield analytics, farmer dashboards, and a predatory mite applicator design/analysis.</p>
-                </div>
-              </div>
-              <div class="vt-item">
-                <div class="vt-dot pill-ind"></div>
-                <div class="vt-content">
-                  <h3>Product Assistant · Mech Solutions (remote)</h3>
-                  <p class="meta">Feb 2023 — Apr 2024</p>
-                  <p>3D printer reliability via computer vision: spaghetti detection; BTT Pi + Cloud3dPrint integrations.</p>
-                </div>
-              </div>
-              <div class="vt-item">
-                <div class="vt-dot pill-ind"></div>
-                <div class="vt-content">
-                  <h3>Business Development Trainee · SWVL</h3>
-                  <p class="meta">Sep 2022 — Dec 2022</p>
-                  <p>Client accounts, lead generation, and transportation models for organizations.</p>
-                </div>
-              </div>
-              <div class="vt-item">
-                <div class="vt-dot pill-int"></div>
-                <div class="vt-content">
-                  <h3>Computer Vision Intern · GIK Institute</h3>
-                  <p class="meta">Jun 2021 — Jul 2021</p>
-                  <p>Medial cubital vein detection with TensorFlow/YOLOv5; 97% accuracy and large training acceleration.</p>
-                </div>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"><i class="fas fa-cogs"></i></div>
+        <div class="timeline-card">
+          <div class="timeline-date">FEB 2023 &mdash; APR 2024</div>
+          <div class="timeline-role">Product Assistant (ML &amp; Computer Vision)</div>
+          <div class="timeline-company"><i class="fas fa-building"></i> Mech Solutions &mdash; Canada (Remote)</div>
+          <p class="timeline-desc">Collaborated on optimizing 3D printer design and reliability using computer vision and machine learning. Developed a spaghetti detection system to prevent filament failures. Contributed to the launch of BTT Pi for remote 3D printer monitoring via Cloud3dPrint platform.</p>
+          <div class="timeline-tags">
+            <span class="tag">Machine Learning</span><span class="tag">Computer Vision</span><span class="tag">3D Printing</span><span class="tag">IoT</span>
           </div>
-        </section>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"><i class="fas fa-eye"></i></div>
+        <div class="timeline-card">
+          <div class="timeline-date">JUN 2021 &mdash; JUL 2021</div>
+          <div class="timeline-role">Computer Vision Intern</div>
+          <div class="timeline-company"><i class="fas fa-university"></i> GIK Institute, Pakistan</div>
+          <p class="timeline-desc">Built a Medial Cubital Vein detection model using TensorFlow and YOLOv5. Reduced training time from 2 days to 30 minutes while achieving 97% accuracy.</p>
+          <div class="timeline-tags">
+            <span class="tag">TensorFlow</span><span class="tag">YOLOv5</span><span class="tag">Object Detection</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-rocket"></i> Featured Projects</div>
+      <h2 class="section-title">What I've Built</h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card featured reveal">
+        <div>
+          <div class="project-icon"><i class="fas fa-robot"></i></div>
+          <h3>Florabot &mdash; Autonomous Nursery Management Robot</h3>
+          <div class="project-location"><i class="fas fa-map-marker-alt"></i> Auburn University &nbsp;|&nbsp; <i class="fas fa-trophy" style="color:#ffd700"></i> FIRA 2024 Winner</div>
+          <p>Designed and led development of Florabot, an autonomous ground robot that performs plant counting, quality assessment, and row navigation in ornamental nurseries. Integrated RGB, depth, GPS/RTK, and ultrasonic sensing with ROS-based control, running real-time inference on NVIDIA Jetson Orin. Won the Excellence in Productivity Award at the FIRA World Ag Robotics Forum 2024.</p>
+          <div class="project-tech">
+            <span>ROS</span><span>NVIDIA Jetson Orin</span><span>PyTorch</span><span>ZED Camera</span><span>OAK-D</span><span>Gazebo</span><span>SLAM</span><span>Deep Learning</span><span>Sensor Fusion</span>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="stat-row"><span class="stat-label">Plant Counting Accuracy</span><span class="stat-value">99%</span></div>
+          <div class="stat-row"><span class="stat-label">Quality Classification</span><span class="stat-value">90%</span></div>
+          <div class="stat-row"><span class="stat-label">Platform</span><span class="stat-value">Amiga Farm-ng</span></div>
+          <div class="stat-row"><span class="stat-label">Competition</span><span class="stat-value">FIRA 2024 Winner</span></div>
+          <div class="stat-row"><span class="stat-label">Papers Generated</span><span class="stat-value">5+</span></div>
+          <div class="stat-row"><span class="stat-label">Patents Filed</span><span class="stat-value">2</span></div>
+        </div>
       </div>
 
-      <section id="skills" class="section">
-        <div class="container narrow prose">
-          <h2>Research & Skills</h2>
-          <p class="muted">Filter by pillar or search; tap a card to see a short description.</p>
-          <div class="skills-toolbar">
-            <div id="skill-tabs" class="tabs" role="tablist" aria-label="Skill pillars">
-              <button class="tab active" data-group="all" role="tab" aria-selected="true">All</button>
-              <button class="tab" data-group="robotics" role="tab">Robotics</button>
-              <button class="tab" data-group="ml" role="tab">AI</button>
-              <button class="tab" data-group="mechanical" role="tab">Mechanical</button>
-              <button class="tab" data-group="ag" role="tab">Agriculture</button>
-              <button class="tab" data-group="systems" role="tab">Systems</button>
-            </div>
-            <input id="skills-search" class="skills-search" type="search" placeholder="Search skills (e.g., ROS, SLAM, Segmentation)" aria-label="Search skills" />
-          </div>
-          <div id="skill-grid" class="skill-grid" aria-live="polite"></div>
-          <div id="skill-info" class="skill-info" hidden>
-            <h3 id="skill-title"></h3>
-            <p id="skill-note" class="muted"></p>
-          </div>
-          
-          <h3>Programming & AI — Technical</h3>
-          <p class="muted">A console‑style overview of what I work with day‑to‑day.</p>
-          <div class="console-grid">
-            <div class="console">
-              <h4>Core Languages</h4>
-              <p>Python, C++, MATLAB, C, SQL, Bash</p>
-              <h4>ML / CV</h4>
-              <p>PyTorch, TensorFlow, YOLOv5/11, OpenCV, scikit‑learn, NumPy, Pandas</p>
-              <h4>Visualization</h4>
-              <p>Matplotlib, Seaborn; dashboarding with FastAPI/Gradio when needed</p>
-            </div>
-            <div class="console">
-              <h4>Robotics</h4>
-              <p>ROS Noetic/Humble, Gazebo/ignition, SLAM (GMapping, ORB‑SLAM), Path‑planning (A*, D*, RRT*, RL)</p>
-              <h4>Platforms</h4>
-              <p>NVIDIA Jetson (Xavier/Orin), Ubuntu, farm‑ng Amiga</p>
-              <h4>DevOps</h4>
-              <p>Git, Docker, reproducible training/eval pipelines, dataset versioning</p>
-            </div>
-          </div>
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:var(--accent-gradient2)"><i class="fas fa-digital-tachograph"></i></div>
+        <h3>Generative AI Digital Twin Pipeline</h3>
+        <div class="project-location"><i class="fas fa-file-shield"></i> Patent Pending</div>
+        <p>Created a digital twin system generating synthetic crop data to enable zero-shot and few-shot model training. Scales AI model development while reducing dependency on extensive field labeling.</p>
+        <div class="project-tech">
+          <span>PyTorch</span><span>SAM</span><span>YOLO</span><span>DINO</span><span>Synthetic Data</span><span>3D Simulation</span>
         </div>
-      </section>
+      </div>
 
-      <section id="media" class="section alt">
-        <div class="container narrow">
-          <h2>Media Gallery</h2>
-          <p class="muted">A collection of images and videos showcasing my work and achievements.</p>
-          <div class="media-gallery">
-            <div class="media-item active">
-              <img src="./Media/Amiga_Nursery_testing.jpg" alt="Amiga Nursery Testing" />
-              <div class="media-caption">
-                <h4>Amiga Nursery Testing</h4>
-                <p>Field testing of autonomous navigation and perception systems for nursery management using the farm-ng Amiga platform.</p>
-              </div>
-            </div>
-            <div class="media-item">
-              <img src="./Media/FIRA Winner.jpg" alt="FIRA Winner" />
-              <div class="media-caption">
-                <h4>FIRA World Ag Robotics Forum Winner</h4>
-                <p>Excellence in Productivity Award winner at the Farm Robotics Challenge, FIRA World Ag Robotics Forum 2024.</p>
-              </div>
-            </div>
-            <div class="media-item">
-              <img src="./Media/Poster Presentation.jpg" alt="Poster Presentation" />
-              <div class="media-caption">
-                <h4>Research Poster Presentation</h4>
-                <p>Presenting research findings on autonomous agricultural robotics and computer vision applications.</p>
-              </div>
-            </div>
-            <div class="media-item">
-              <img src="./Media/Award Winner - Research showcase.jpg" alt="Award Winner Research Showcase" />
-              <div class="media-caption">
-                <h4>Best 1st Year Graduate Student Presentation</h4>
-                <p>Award winner at the Graduate Engineering Research Showcase 2025 for outstanding research presentation.</p>
-              </div>
-            </div>
-            <div class="media-item">
-              <img src="./Media/Award winner - AI for Collab.jpg" alt="Award Winner AI for Collaboration" />
-              <div class="media-caption">
-                <h4>2nd Place - AI in Production Agriculture</h4>
-                <p>Second place winner at the Harnessing Data Science and AI in Production Agriculture Forum 2025.</p>
-              </div>
-            </div>
-            <div class="media-item">
-              <img src="./Media/ASABE 2025 presentaion.jpg" alt="ASABE 2025 Presentation" />
-              <div class="media-caption">
-                <h4>ASABE 2025 Conference Presentation</h4>
-                <p>Presenting research on agricultural robotics and precision agriculture at the ASABE Annual International Meeting.</p>
-              </div>
-            </div>
-            <div class="media-item">
-              <img src="./Media/internship at TRIC Robotics.png" alt="TRIC Robotics Internship" />
-              <div class="media-caption">
-                <h4>TRIC Robotics Internship</h4>
-                <p>Robotics Engineering Internship experience working on strawberry yield analytics and farmer dashboard development.</p>
-              </div>
-            </div>
-            <div class="media-item">
-              <img src="./Media/Field_day_in California -TRIC Robotics.jpg" alt="Field Day California TRIC Robotics" />
-              <div class="media-caption">
-                <h4>Field Day in California - TRIC Robotics</h4>
-                <p>Field testing and validation of robotics systems in real agricultural environments during the TRIC Robotics internship.</p>
-              </div>
-            </div>
-            <div class="media-item">
-              <img src="./Media/BS_graduation.jpg" alt="BS Graduation" />
-              <div class="media-caption">
-                <h4>Bachelor's Degree Graduation</h4>
-                <p>Graduated with Distinction from Ghulam Ishaq Khan Institute (GIKI) with a B.S. in Mechanical Engineering.</p>
-              </div>
-            </div>
-            <div class="media-item">
-              <img src="./Media/Precision Ag Lab at Auburn.jpeg" alt="Precision Agriculture Lab Auburn" />
-              <div class="media-caption">
-                <h4>Precision Agriculture Lab at Auburn</h4>
-                <p>Research environment at Auburn University's Precision Agriculture Lab working on autonomous agricultural robotics.</p>
-              </div>
-            </div>
-          </div>
-                      <div class="media-navigation">
-              <button class="media-nav prev" aria-label="Previous media">←</button>
-              <span class="media-counter">1 of 10</span>
-              <button class="media-nav next" aria-label="Next media">→</button>
-            </div>
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:linear-gradient(135deg,#00c853,#00bfa5)"><i class="fas fa-camera"></i></div>
+        <h3>Robotic Overhead Camera for Greenhouse Monitoring</h3>
+        <div class="project-location"><i class="fas fa-flask"></i> Auburn University</div>
+        <p>Designed a fully automated 2-DOF overhead gantry camera system for greenhouse plant phenotyping. Integrating RGB, depth, and hyperspectral imaging with programmable motion control.</p>
+        <div class="project-tech">
+          <span>Jetson</span><span>Hyperspectral</span><span>Depth Imaging</span><span>CAD</span><span>Motion Control</span>
         </div>
-      </section>
+      </div>
 
-      <section id="publications" class="section">
-        <div class="container narrow prose">
-          <h2>Publications</h2>
-          <div class="pub-controls">
-            <input id="pub-search" type="search" placeholder="Search title, author, or keyword" aria-label="Search publications" />
-            <span class="hint">Type to filter</span>
-          </div>
-          <ol id="pub-list" class="pub-list"></ol>
-          <details class="muted">
-            <summary>Pending papers and patents</summary>
-            <ul id="pending-list"></ul>
-          </details>
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:linear-gradient(135deg,#ff6b6b,#ee5a24)"><i class="fas fa-route"></i></div>
+        <h3>Path Planning of Holonomic Collaborative Robot</h3>
+        <div class="project-location"><i class="fas fa-graduation-cap"></i> GIKI &mdash; B.S. Thesis</div>
+        <p>Deep reinforcement learning and SLAM-based path-planning and obstacle-avoidance for a holonomic collaborative mobile robot. Modeled in MATLAB/Simulink, trained in Python, validated in Gazebo/ROS Noetic.</p>
+        <div class="project-tech">
+          <span>Deep RL</span><span>SLAM</span><span>ROS Noetic</span><span>Gazebo</span><span>MATLAB</span><span>Python</span>
         </div>
-      </section>
+      </div>
 
-      <section id="awards" class="section alt">
-        <div class="container narrow prose">
-          <h2>Awards & Recognitions</h2>
-          <ul>
-            <li><strong>Excellence in Productivity Award- Farm Robotics Challenge, FIRA World Ag Robotics Forum 2024</strong> </li>
-            <li>Best 1st Year Graduate Student Presentation - Graduate Engineering Research Showcase 2025</li>
-            <li>2nd Place - Harnessing Data Science and AI in Production Agriculture Forum 2025</li>
-            <li>Graduated with Distinction - GIKI</li>
-            <li>Four-time Dean's Honor Roll</li>
-            <li>Chief Minister KPK Scholarship</li>
-            <li>I am serving as a Treasurer in PSA</li>
-          </ul>
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:linear-gradient(135deg,#e91e63,#9c27b0)"><i class="fas fa-seedling"></i></div>
+        <h3>Strawberry Phenotyping &amp; Yield Prediction</h3>
+        <div class="project-location"><i class="fas fa-building"></i> TRIC Robotics Internship</div>
+        <p>Full-stack pipeline: RGB data collection, PyTorch model training, Jetson Orin deployment for yield prediction. Built a farmer-facing web dashboard and co-developed a predatory mite applicator.</p>
+        <div class="project-tech">
+          <span>PyTorch</span><span>Jetson Orin</span><span>Web App</span><span>PostgreSQL</span><span>Field Robotics</span>
         </div>
-      </section>
+      </div>
 
-      <section class="section">
-        <div class="container narrow prose">
-          <h2>Certifications</h2>
+      <div class="project-card reveal">
+        <div class="project-icon" style="background:linear-gradient(135deg,#2196f3,#00bcd4)"><i class="fas fa-satellite-dish"></i></div>
+        <h3>KBTrack: Long-Term Plant Tracking System</h3>
+        <div class="project-location"><i class="fas fa-file-shield"></i> Patent Pending</div>
+        <p>Cloud-enabled plant segmentation and tracking framework for ornamental nursery inventory management. Long-term tracking across multiple robot passes for scalable plant inventory.</p>
+        <div class="project-tech">
+          <span>Segmentation</span><span>Tracking</span><span>Cloud Computing</span><span>Deep Learning</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-book-open"></i> Publications &amp; Patents</div>
+      <h2 class="section-title">Research Output</h2>
+      <p class="section-desc">2 published papers, 5 papers in progress, and 2 pending patents.</p>
+    </div>
+    <div class="pub-list">
+      <div class="pub-card reveal">
+        <div class="pub-icon published"><i class="fas fa-file-lines"></i></div>
+        <div>
+          <h4>A Graph Convolutional Network Approach for Hyperspectral Image Analysis of Blueberries Physiological Traits Under Drought Stress</h4>
+          <div class="pub-authors">Rahman M.H., Busby S., Hanif S., Maruf M.M., <strong>Ahmad F.</strong>, Ru S., Sanz-Saez A., Zheng J., Rehman T.U.</div>
+          <span class="pub-status published"><i class="fas fa-check-circle"></i> Published 2024</span>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-icon published"><i class="fas fa-file-lines"></i></div>
+        <div>
+          <h4>Exploring 3D Latent Feature Embedding for Few and Single-Shot Unsupervised Person Re-Identification</h4>
+          <div class="pub-authors">Syed H.H., Waseem M., <strong>Ahmad F.</strong>, Habib M., Khan S.U., Rehman T.</div>
+          <span class="pub-status published"><i class="fas fa-check-circle"></i> Published 2024</span>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-icon pending"><i class="fas fa-file-pen"></i></div>
+        <div>
+          <h4>Autonomous Robotic Navigation in Ornamental Crop Production Using Vision and Sensor Fusion</h4>
+          <div class="pub-authors"><strong>Ahmad F.</strong>, Syed H., Rafi M.H. &amp; Rehman T.U.</div>
+          <span class="pub-status pending"><i class="fas fa-clock"></i> First Author &mdash; To Be Published</span>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-icon patent"><i class="fas fa-lightbulb"></i></div>
+        <div>
+          <h4>Generative AI-Based Digital Twin Pipeline for Advanced Agricultural Analytics Enabled by Synthetic Data and Zero-Shot Learning</h4>
+          <div class="pub-authors"><strong>Ahmad F.</strong>, Syed H., Rafi M.H. &amp; Rehman T.U.</div>
+          <span class="pub-status patent"><i class="fas fa-shield-halved"></i> First Author &mdash; Patent Pending</span>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-icon pending"><i class="fas fa-file-pen"></i></div>
+        <div>
+          <h4>Design and Development of a Robotic Overhead Camera System for Automated Greenhouse Monitoring</h4>
+          <div class="pub-authors"><strong>Ahmad F.</strong>, Rahman M.H. &amp; Rehman T.U.</div>
+          <span class="pub-status pending"><i class="fas fa-clock"></i> First Author &mdash; To Be Published</span>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-icon" style="background:rgba(255,193,7,0.1);color:#ffc107"><i class="fas fa-magnifying-glass"></i></div>
+        <div>
+          <h4>Automated In-field Ornamental Nursery Plant Counting and Quality Assessment With End-to-End Deep Learning for Inventory Management</h4>
+          <div class="pub-authors">Syed H.H., <strong>Ahmad F.</strong>, Rafi M.H., Pickens J., Rehman T.U.</div>
+          <span class="pub-status review"><i class="fas fa-hourglass-half"></i> Under Review</span>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-icon patent"><i class="fas fa-lightbulb"></i></div>
+        <div>
+          <h4>KBTrack: Long Term Tracking for Plant Counting with Cloud-Enabled Plant Segmentation Framework for Ornamental Nursery Inventory Management</h4>
+          <div class="pub-authors">Rafi M.H., <strong>Ahmad F.</strong>, Syed H. &amp; Rehman T.U.</div>
+          <span class="pub-status patent"><i class="fas fa-shield-halved"></i> Patent Pending</span>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-icon pending"><i class="fas fa-file-pen"></i></div>
+        <div>
+          <h4>Expanding Capabilities of AI-Driven Robotic Inventory Management and Quality Evaluation of Ornamental</h4>
+          <div class="pub-authors">Syed H.H., <strong>Ahmad F.</strong>, Rafi M.H., Pickens J., Rehman T.U.</div>
+          <span class="pub-status pending"><i class="fas fa-clock"></i> To Be Published</span>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-icon pending"><i class="fas fa-file-pen"></i></div>
+        <div>
+          <h4>Cloud-Enabled Plant Segmentation and Tracking Framework for Ornamental Nursery Inventory Management</h4>
+          <div class="pub-authors">Rafi M.H., <strong>Ahmad F.</strong>, Syed H., Pickens J. &amp; Rehman T.U.</div>
+          <span class="pub-status pending"><i class="fas fa-clock"></i> To Be Published</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-trophy"></i> Awards &amp; Achievements</div>
+      <h2 class="section-title">Recognition</h2>
+    </div>
+    <div class="awards-grid">
+      <a href="https://www.farmroboticschallenge.ai/2024results" target="_blank" class="award-card reveal">
+        <div class="award-icon"><i class="fas fa-trophy"></i></div>
+        <div>
+          <h4>Excellence in Productivity Award</h4>
+          <p>Farm Robotics Challenge &mdash; FIRA World Ag Robotics Forum 2024, Sacramento</p>
+          <div class="award-link"><i class="fas fa-external-link-alt"></i> View Results</div>
+        </div>
+      </a>
+      <div class="award-card reveal">
+        <div class="award-icon"><i class="fas fa-medal"></i></div>
+        <div>
+          <h4>Best 1st Year Graduate Student Presentation</h4>
+          <p>2025 Graduate Engineering Research Showcase, Auburn University</p>
+        </div>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon"><i class="fas fa-award"></i></div>
+        <div>
+          <h4>2nd Place &mdash; Data Science &amp; AI in Agriculture Forum</h4>
+          <p>Harnessing Data Science and AI in Production Agriculture, 2025</p>
+        </div>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon"><i class="fas fa-star"></i></div>
+        <div>
+          <h4>College of Agriculture Poster Showcase Award</h4>
+          <p>Auburn University, 2025</p>
+        </div>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon" style="background:linear-gradient(135deg,#c0c0c0,#808080)"><i class="fas fa-graduation-cap"></i></div>
+        <div>
+          <h4>Graduated with Distinction &mdash; Top 10 in Batch</h4>
+          <p>GIKI &mdash; 4x Dean's Honor Roll Recipient</p>
+        </div>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon" style="background:linear-gradient(135deg,#4caf50,#2e7d32)"><i class="fas fa-hand-holding-dollar"></i></div>
+        <div>
+          <h4>Chief Minister KPK Scholarship</h4>
+          <p>Full merit scholarship for B.S. at GIKI</p>
+        </div>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon" style="background:linear-gradient(135deg,#4caf50,#2e7d32)"><i class="fas fa-gem"></i></div>
+        <div>
+          <h4>Talent Scholarship</h4>
+          <p>The Quaid-e-Azam College, Swabi</p>
+        </div>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon" style="background:linear-gradient(135deg,#2196f3,#1565c0)"><i class="fas fa-users-gear"></i></div>
+        <div>
+          <h4>Director Mechanical &mdash; Robotics Team</h4>
+          <p>Led the mechanical division of the university robotics team at GIKI</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-code"></i> Technical Skills</div>
+      <h2 class="section-title">My Tech Stack</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category reveal">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(0,212,255,0.1);color:var(--accent)"><i class="fas fa-robot"></i></div>
+          <h3>Robotics &amp; Autonomy</h3>
+        </div>
+        <div class="skill-items">
+          <span class="skill-pill">ROS / ROS2</span>
+          <span class="skill-pill">Gazebo / Isaac Sim</span>
+          <span class="skill-pill">SLAM</span>
+          <span class="skill-pill">Path Planning</span>
+          <span class="skill-pill">Sensor Fusion</span>
+          <span class="skill-pill">EKF / UKF</span>
+          <span class="skill-pill">Nav2 / move_base</span>
+          <span class="skill-pill">MoveIt</span>
+          <span class="skill-pill">URDF / Xacro</span>
+          <span class="skill-pill">tf2 Transforms</span>
+          <span class="skill-pill">Kinematics</span>
+          <span class="skill-pill">PID / Control Theory</span>
+          <span class="skill-pill">Motion Planning</span>
+          <span class="skill-pill">Behavior Trees</span>
+          <span class="skill-pill">farm-ng SDK</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-1">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(123,47,247,0.1);color:var(--accent2)"><i class="fas fa-brain"></i></div>
+          <h3>AI &amp; Deep Learning</h3>
+        </div>
+        <div class="skill-items">
+          <span class="skill-pill">PyTorch</span>
+          <span class="skill-pill">TensorFlow</span>
+          <span class="skill-pill">YOLO (v5-v11)</span>
+          <span class="skill-pill">SAM / SAM2</span>
+          <span class="skill-pill">DINO / GroundingDINO</span>
+          <span class="skill-pill">OpenCV</span>
+          <span class="skill-pill">Reinforcement Learning</span>
+          <span class="skill-pill">GCNs</span>
+          <span class="skill-pill">Instance Segmentation</span>
+          <span class="skill-pill">Object Tracking</span>
+          <span class="skill-pill">TensorRT</span>
+          <span class="skill-pill">ONNX</span>
+          <span class="skill-pill">Stable Baselines3</span>
+          <span class="skill-pill">Point Cloud (PCL)</span>
+          <span class="skill-pill">Open3D</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-2">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(255,107,107,0.1);color:var(--accent3)"><i class="fas fa-terminal"></i></div>
+          <h3>Programming &amp; DevOps</h3>
+        </div>
+        <div class="skill-items">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">C++</span>
+          <span class="skill-pill">MATLAB</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">R</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Git / GitHub</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">Linux / Ubuntu</span>
+          <span class="skill-pill">Bash</span>
+          <span class="skill-pill">CI/CD</span>
+          <span class="skill-pill">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-category reveal">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(255,193,7,0.1);color:#ffc107"><i class="fas fa-camera"></i></div>
+          <h3>Sensors &amp; Hardware</h3>
+        </div>
+        <div class="skill-items">
+          <span class="skill-pill">NVIDIA Jetson Orin / Nano</span>
+          <span class="skill-pill">ZED Camera</span>
+          <span class="skill-pill">OAK-D (DepthAI)</span>
+          <span class="skill-pill">Intel RealSense</span>
+          <span class="skill-pill">LiDAR</span>
+          <span class="skill-pill">RTK-GPS</span>
+          <span class="skill-pill">IMU</span>
+          <span class="skill-pill">Hyperspectral</span>
+          <span class="skill-pill">Ultrasonic</span>
+          <span class="skill-pill">Arduino</span>
+          <span class="skill-pill">Raspberry Pi</span>
+          <span class="skill-pill">CAN Bus</span>
+          <span class="skill-pill">Embedded Systems</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-1">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(0,230,118,0.1);color:#00e676"><i class="fas fa-cube"></i></div>
+          <h3>CAD &amp; Simulation</h3>
+        </div>
+        <div class="skill-items">
+          <span class="skill-pill">SolidWorks</span>
+          <span class="skill-pill">Fusion 360</span>
+          <span class="skill-pill">CREO</span>
+          <span class="skill-pill">ANSYS (FEA)</span>
+          <span class="skill-pill">Proteus</span>
+          <span class="skill-pill">MATLAB / Simulink</span>
+          <span class="skill-pill">Gazebo</span>
+          <span class="skill-pill">Isaac Sim</span>
+          <span class="skill-pill">3D Printing</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-2">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(233,30,99,0.1);color:#e91e63"><i class="fas fa-chart-line"></i></div>
+          <h3>Data &amp; Analytics</h3>
+        </div>
+        <div class="skill-items">
+          <span class="skill-pill">Data Science</span>
+          <span class="skill-pill">Statistical Modeling</span>
+          <span class="skill-pill">Geospatial Analysis</span>
+          <span class="skill-pill">Exploratory Analysis</span>
+          <span class="skill-pill">Data Visualization</span>
+          <span class="skill-pill">Experimental Design</span>
+          <span class="skill-pill">NumPy / Pandas</span>
+          <span class="skill-pill">Matplotlib</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><i class="fas fa-certificate"></i> Certifications</div>
+      <h2 class="section-title">Continuous Learning</h2>
+    </div>
+    <div class="certs-grid">
+      <a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank" class="cert-card reveal">
+        <div class="cert-logo">
+          <svg viewBox="0 0 48 48" width="40" height="40"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/></svg>
+        </div>
+        <div>
+          <div class="cert-provider">Google &bull; Coursera</div>
+          <h4>Google Data Analytics Specialization</h4>
+          <p class="cert-desc">6-month professional certificate</p>
+        </div>
+        <i class="fas fa-external-link-alt cert-link-icon"></i>
+      </a>
+      <a href="https://www.coursera.org/specializations/deep-learning" target="_blank" class="cert-card reveal">
+        <div class="cert-logo">
+          <svg viewBox="0 0 48 48" width="40" height="40"><rect fill="#1565C0" x="2" y="2" width="44" height="44" rx="6"/><text x="24" y="30" text-anchor="middle" fill="white" font-size="16" font-weight="bold" font-family="Arial">DL</text></svg>
+        </div>
+        <div>
+          <div class="cert-provider">DeepLearning.AI &bull; Coursera</div>
+          <h4>Deep Learning Specialization</h4>
+          <p class="cert-desc">5-course specialization by Andrew Ng</p>
+        </div>
+        <i class="fas fa-external-link-alt cert-link-icon"></i>
+      </a>
+      <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" class="cert-card reveal">
+        <div class="cert-logo">
+          <svg viewBox="0 0 48 48" width="40" height="40"><rect fill="#1565C0" x="2" y="2" width="44" height="44" rx="6"/><text x="24" y="30" text-anchor="middle" fill="white" font-size="16" font-weight="bold" font-family="Arial">DL</text></svg>
+        </div>
+        <div>
+          <div class="cert-provider">DeepLearning.AI &bull; Coursera</div>
+          <h4>Machine Learning Specialization</h4>
+          <p class="cert-desc">Complete ML specialization in Python</p>
+        </div>
+        <i class="fas fa-external-link-alt cert-link-icon"></i>
+      </a>
+      <a href="https://www.udacity.com/course/computer-vision-nanodegree--nd891" target="_blank" class="cert-card reveal">
+        <div class="cert-logo">
+          <svg viewBox="0 0 48 48" width="40" height="40"><rect fill="#02B3E4" x="2" y="2" width="44" height="44" rx="6"/><text x="24" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Arial">U</text></svg>
+        </div>
+        <div>
+          <div class="cert-provider">Udacity</div>
+          <h4>Computer Vision Nanodegree</h4>
+          <p class="cert-desc">Advanced CV &amp; deep learning program</p>
+        </div>
+        <i class="fas fa-external-link-alt cert-link-icon"></i>
+      </a>
+      <a href="https://www.coursera.org/learn/machine-learning" target="_blank" class="cert-card reveal">
+        <div class="cert-logo">
+          <svg viewBox="0 0 48 48" width="40" height="40"><rect fill="#C0392B" x="2" y="2" width="44" height="44" rx="6"/><text x="24" y="30" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">SU</text></svg>
+        </div>
+        <div>
+          <div class="cert-provider">Stanford University &bull; Coursera</div>
+          <h4>Machine Learning</h4>
+          <p class="cert-desc">By Andrew Ng &mdash; MATLAB</p>
+        </div>
+        <i class="fas fa-external-link-alt cert-link-icon"></i>
+      </a>
+      <a href="https://www.coursera.org/learn/exploratory-data-analysis-matlab" target="_blank" class="cert-card reveal">
+        <div class="cert-logo">
+          <svg viewBox="0 0 48 48" width="40" height="40"><rect fill="#E65100" x="2" y="2" width="44" height="44" rx="6"/><text x="24" y="30" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">MW</text></svg>
+        </div>
+        <div>
+          <div class="cert-provider">MathWorks &bull; Coursera</div>
+          <h4>Exploratory Data Analysis with MATLAB</h4>
+          <p class="cert-desc">Data analysis &amp; visualization in MATLAB</p>
+        </div>
+        <i class="fas fa-external-link-alt cert-link-icon"></i>
+      </a>
+      <a href="https://www.coursera.org/learn/matlab" target="_blank" class="cert-card reveal">
+        <div class="cert-logo">
+          <svg viewBox="0 0 48 48" width="40" height="40"><rect fill="#F9A825" x="2" y="2" width="44" height="44" rx="6"/><text x="24" y="30" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">VU</text></svg>
+        </div>
+        <div>
+          <div class="cert-provider">Vanderbilt University &bull; Coursera</div>
+          <h4>Introduction to Programming with MATLAB</h4>
+          <p class="cert-desc">Foundations of MATLAB programming</p>
+        </div>
+        <i class="fas fa-external-link-alt cert-link-icon"></i>
+      </a>
+      <a href="https://www.sololearn.com/en/Course/Python" target="_blank" class="cert-card reveal">
+        <div class="cert-logo">
+          <svg viewBox="0 0 48 48" width="40" height="40"><rect fill="#4CAF50" x="2" y="2" width="44" height="44" rx="6"/><text x="24" y="30" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Arial">SL</text></svg>
+        </div>
+        <div>
+          <div class="cert-provider">Sololearn</div>
+          <h4>Python Programming</h4>
+          <p class="cert-desc">7-week comprehensive Python course</p>
+        </div>
+        <i class="fas fa-external-link-alt cert-link-icon"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="contact-cta">
+          <div class="section-label"><i class="fas fa-paper-plane"></i> Get in Touch</div>
+          <h2>Let's Build the<br>Future of Robotics</h2>
+          <p>I'm actively looking for Robotics &amp; AI engineering roles where I can apply my expertise in autonomous systems, computer vision, and deep learning. Let's connect and discuss how I can contribute to your team.</p>
+          <a href="mailto:fza0070@auburn.edu" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
+        </div>
+      </div>
+      <div class="contact-info reveal reveal-delay-2">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
           <div>
-            <ul>
-              <li>Introduction to Programming with MATLAB - Vanderbilt (Coursera)</li>
-              <li>Machine Learning - Stanford (Coursera, MATLAB)</li>
-              <li>Machine Learning Specialization - DeepLearning.AI (Python)</li>
-              <li>Deep Learning Specialization — DeepLearning.AI</li>
-              <li>Computer Vision Nanodegree - Udacity</li>
-              <li>Google Data Analytics Specialization - Coursera</li>
-              <li>Exploratory Data Analysis with MATLAB - MathWorks (Coursera)</li>
-            </ul>
+            <h4>Email</h4>
+            <a href="mailto:fza0070@auburn.edu">fza0070@auburn.edu</a>
           </div>
         </div>
-      </section>
-
-      <section id="contact" class="section alt">
-        <div class="container narrow prose">
-          <h2>Contact</h2>
-          <p>Open to research collaborations and industry partnerships.</p>
-          <ul class="contact-list">
-            <li><strong>Email:</strong> <a href="mailto:fza0070@auburn.edu">fza0070@auburn.edu</a></li>
-            <li><strong>Location:</strong> Auburn, Alabama, USA</li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mfaraz-ahmad/" target="_blank" rel="noopener">/in/mfaraz-ahmad</a></li>
-            <li><strong>CV:</strong> <a href="../Faraz%20resume%20Latest.pdf" target="_blank" rel="noopener">Download PDF</a></li>
-          </ul>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h4>Personal Email</h4>
+            <a href="mailto:itsfaraz111@gmail.com">itsfaraz111@gmail.com</a>
+          </div>
         </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container narrow">
-        <p>© <span id="year"></span> Faraz Ahmad.</p>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>Phone</h4>
+            <p>+1 (334) 663-7026</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+          <div>
+            <h4>LinkedIn</h4>
+            <a href="https://linkedin.com/in/mfaraz-ahmad" target="_blank">linkedin.com/in/mfaraz-ahmad</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Location</h4>
+            <p>Auburn, Alabama, USA</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-globe"></i></div>
+          <div>
+            <h4>Website</h4>
+            <a href="https://its-faraz.github.io/faraz/" target="_blank">its-faraz.github.io/faraz</a>
+          </div>
+        </div>
       </div>
-    </footer>
+    </div>
+  </div>
+</section>
 
-    <script>
-      window.SITE_DATA = {
-        contact: {
-          email: "fza0070@auburn.edu",
-          linkedin: "https://www.linkedin.com/in/mfaraz-ahmad/"
-        },
-        publications: [
-          {
-            title: "A graph convolutional network approach for hyperspectral image analysis of blueberries physiological traits under drought stress",
-            year: 2024,
-            authors: ["Md. Hasibur Rahman","Savannah Busby","Sajid Hanif","Md Mesbahul Maruf","Faraz Ahmad","Sushan Ru","Alvaro Sanz-Saez","Jingyi Zheng","Tanzeel U. Rehman"]
-          },
-          {
-            title: "Exploring 3D Latent Feature Embedding for Few and Single-Shot Unsupervised Person Re-Identification",
-            year: 2024,
-            authors: ["Hamid Habib Syed","Muhammad Waseem","Faraz Ahmad","Muhammad Habib","Shafi Ullah Khan","Tanzeel Rehman"]
-          }
-        ],
-        pending: [
-          "Autonomous Robotic Navigation in Ornamental Crop Production Using Vision and Sensor Fusion — to be published (Ahmad F., Syed H., Rafi M. H., Rehman T. U.)",
-          "Generative AI-Based Digital Twin Pipeline for Advanced Agricultural Analytics Enabled by Synthetic Data and Zero-Shot Learning — patent pending (Ahmad F., Syed H., Rafi M. H., Rehman T. U.)",
-          "Design and Development of a Robotic Overhead Camera System for Automated Greenhouse Monitoring — to be published (Ahmad F., Rahman M. H., Rehman T. U.)",
-          "Automated In-field Ornamental Nursery Plant Counting and Quality Assessment With End-to-End Deep Learning for Inventory Management — under review (Syed H. H., Ahmad F., Rafi M. H., Pickens J., Rehman T. U.)",
-          "Expanding Capabilities of AI-Driven Robotic Inventory Management and Quality Evaluation of Ornamental — to be published (Syed H. H., Ahmad F., Rafi M. H., Pickens J., Rehman T. U.)",
-          "KBTrack: Long Term Tracking for Plant Counting with Cloud-Enabled Plant Segmentation Framework for Ornamental Nursery Inventory Management — patent pending (Rafi M. H., Ahmad F., Syed H., Rehman T. U.)",
-          "Cloud-Enabled Plant Segmentation and Tracking Framework for Ornamental Nursery Inventory Management — to be published (Rafi M. H., Ahmed F., Syed H., Pickens J., Rehman T. U.)"
-        ],
-        experience: [
-          { role: "Graduate Research Assistant", org: "Auburn University", start: "2024-05-01", end: null, type: "uni" },
-          { role: "Robotics Engineering Intern", org: "TRIC Robotics", start: "2025-05-01", end: "2025-08-31", type: "int" },
-          { role: "Product Assistant", org: "Mech Solutions", start: "2023-02-01", end: "2024-04-30", type: "ind" },
-          { role: "Business Development Trainee", org: "SWVL", start: "2022-09-01", end: "2022-12-31", type: "ind" },
-          { role: "Computer Vision Intern", org: "GIK Institute", start: "2021-06-01", end: "2021-07-31", type: "int" }
-        ],
-        skills: [
-          // Robotics
-          { name:'ROS (Noetic/Humble)', group:'robotics', note:'Messaging, nodes, navigation stack' },
-          { name:'Gazebo / Ignition', group:'robotics', note:'Simulation, sensor and robot models' },
-          { name:'SLAM (GMapping, ORB‑SLAM)', group:'robotics', note:'Mapping and localization' },
-          { name:'Path Planning (A*, D*, RRT*, RL)', group:'robotics', note:'Global/local planners and DRL' },
-          { name:'Mechatronics', group:'mechanical', note:'Electromechanical integration and control' },
-          { name:'Jetson (Xavier/Orin)', group:'robotics', note:'Edge acceleration for CV/AI' },
-          { name:'farm-ng Amiga', group:'robotics', note:'Agricultural robotics platform' },
-          { name:'Robot Operating System', group:'robotics', note:'Complete robotics middleware' },
-          { name:'Navigation Stack', group:'robotics', note:'Path planning and obstacle avoidance' },
-          { name:'Sensor Fusion', group:'robotics', note:'Multi-modal sensor integration' },
-          // AI
-          { name:'Deep Learning (PyTorch, TF)', group:'ml', note:'Training and deployment' },
-          { name:'Reinforcement Learning', group:'ml', note:'Decision-making for navigation/control' },
-          { name:'Detection (YOLO)', group:'ml', note:'Object detection for crops/fruit' },
-          { name:'Segmentation', group:'ml', note:'Plant/row/leaf segmentation and counting' },
-          { name:'Tracking', group:'ml', note:'Long-term inventory tracking' },
-          { name:'Hyperspectral Analysis', group:'ml', note:'Stress/traits analysis for crops' },
-          { name:'Computer Vision', group:'ml', note:'Image processing and analysis' },
-          { name:'Machine Learning', group:'ml', note:'Supervised and unsupervised learning' },
-          { name:'Neural Networks', group:'ml', note:'Deep learning architectures' },
-          { name:'Transfer Learning', group:'ml', note:'Pre-trained model adaptation' },
-          // Mechanical
-          { name:'Deterministic Modeling', group:'mechanical', note:'System modeling and simulation' },
-          { name:'System Dynamics & Control', group:'mechanical', note:'Robotics dynamics and control' },
-          { name:'C++ / MATLAB', group:'mechanical', note:'Performance-critical and prototyping' },
-          { name:'CAD Design', group:'mechanical', note:'3D modeling and design' },
-          { name:'Finite Element Analysis', group:'mechanical', note:'Structural and thermal analysis' },
-          { name:'Control Systems', group:'mechanical', note:'PID, state-space, and adaptive control' },
-          { name:'Robotics Kinematics', group:'mechanical', note:'Forward and inverse kinematics' },
-          // Agriculture
-          { name:'Nursery Ops', group:'ag', note:'Workflows in commercial nurseries' },
-          { name:'Inventory', group:'ag', note:'Counting and audit at scale' },
-          { name:'Quality Assessment', group:'ag', note:'Visual QA and grading' },
-          { name:'Geospatial', group:'ag', note:'Spatial analytics and mapping' },
-          { name:'Precision Agriculture', group:'ag', note:'Site-specific crop management' },
-          { name:'Plant Phenotyping', group:'ag', note:'Plant trait measurement and analysis' },
-          { name:'Crop Monitoring', group:'ag', note:'Real-time field monitoring systems' },
-          { name:'Agricultural Robotics', group:'ag', note:'Field automation and robotics' },
-          // Systems
-          { name:'Python', group:'systems', note:'End-to-end glue: data and services' },
-          { name:'Data Analytics', group:'systems', note:'EDA, KPIs, dashboards' },
-          { name:'Web Dashboard (FastAPI/Gradio)', group:'systems', note:'Farmer dashboards and internal tools' },
-          { name:'Docker / Git / Ubuntu', group:'systems', note:'Reproducible environments' },
-          { name:'Cloud Computing', group:'systems', note:'AWS, Azure, Google Cloud' },
-          { name:'Database Management', group:'systems', note:'SQL, NoSQL, data warehousing' },
-          { name:'API Development', group:'systems', note:'RESTful APIs and microservices' },
-          { name:'DevOps', group:'systems', note:'CI/CD, automation, monitoring' }
-        ]
-      };
-    </script>
-    <script src="./scripts.js"></script>
-  </body>
-  </html>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Faraz Ahmad. Robotics &amp; AI Engineer.</p>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/mfaraz-ahmad" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/its-faraz" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:fza0070@auburn.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
 
+<script>
+// THEME TOGGLE
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
 
+(function initTheme() {
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+// NAV SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// MOBILE NAV
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+// PARTICLES
+(function createParticles() {
+  const container = document.getElementById('particles');
+  const colors = ['rgba(0,212,255,0.3)', 'rgba(123,47,247,0.3)', 'rgba(255,107,107,0.2)'];
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 4 + 2;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+    p.style.animationDelay = (Math.random() * 15) + 's';
+    container.appendChild(p);
+  }
+})();
+
+// REVEAL ON SCROLL
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('active');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
+
+// COUNT UP
+const stats = document.querySelectorAll('.hero-stat .num');
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseFloat(el.dataset.target);
+      const decimals = parseInt(el.dataset.decimals) || 0;
+      const duration = 2000;
+      const start = performance.now();
+      function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = (target * eased).toFixed(decimals);
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = decimals > 0 ? target.toFixed(decimals) : target + '+';
+      }
+      requestAnimationFrame(update);
+      statsObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+stats.forEach(el => statsObserver.observe(el));
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
